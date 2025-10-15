@@ -154,10 +154,10 @@ export default function Index() {
     <div className={`min-h-screen bg-gradient-to-br ${scene.background} p-4 transition-all duration-700`}>
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-6 pt-4">
-          <h1 className="text-3xl md:text-5xl mb-2 text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.5)] animate-pulse">
+          <h1 className="text-2xl md:text-3xl mb-2 text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.5)] font-bold tracking-wide">
             ЧТО ЗА ПИЗДЕЦ ТУТ ПРОИСХОДИТ
           </h1>
-          <Badge className="text-sm px-3 py-1 bg-red-600 text-white border-2 border-red-800 animate-bounce">
+          <Badge className="text-xs px-3 py-1 bg-red-600 text-white border-2 border-red-800">
             Cookie Run: Chaos Edition
           </Badge>
         </div>
@@ -186,11 +186,11 @@ export default function Index() {
 
           <div className="bg-gradient-to-b from-black/95 to-gray-900/95 border-t-4 border-purple-600 p-6">
             <div className="mb-3">
-              <Badge className={`${characterColors[currentDialog.character]} border-2 border-current text-base px-3 py-1 font-bold`}>
+              <Badge className={`${characterColors[currentDialog.character]} border-2 border-current text-sm px-3 py-1 font-semibold`}>
                 {currentDialog.name}
               </Badge>
             </div>
-            <p className="text-base md:text-lg leading-relaxed mb-4 min-h-[80px] text-white font-semibold">
+            <p className="text-sm md:text-base leading-relaxed mb-4 min-h-[60px] text-white font-normal">
               {currentDialog.text}
             </p>
 
@@ -234,12 +234,12 @@ export default function Index() {
 
         {showChoices && scene.choices && (
           <div className="mt-4 space-y-3 animate-fade-in">
-            <p className="text-center text-lg font-bold text-white drop-shadow-lg">ЧТО ДЕЛАТЬ?!</p>
+            <p className="text-center text-base font-semibold text-white drop-shadow-lg">ЧТО ДЕЛАТЬ?!</p>
             {scene.choices.map((choice, idx) => (
               <Button
                 key={idx}
                 onClick={() => handleChoice(choice.nextScene)}
-                className="w-full text-base py-6 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white border-4 border-purple-400 hover-scale shadow-lg shadow-purple-500/50 font-bold"
+                className="w-full text-sm py-5 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white border-4 border-purple-400 hover-scale shadow-lg shadow-purple-500/50 font-semibold"
               >
                 {choice.text}
               </Button>
