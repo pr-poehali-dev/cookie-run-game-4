@@ -3,270 +3,263 @@ import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import Icon from '@/components/ui/icon';
-import { toast } from 'sonner';
 
-type Rarity = 'common' | 'rare' | 'epic' | 'legendary';
+type Character = 'strawberry' | 'wizard' | 'knight' | 'princess' | 'narrator';
 
-interface Cookie {
+interface DialogLine {
   id: number;
+  character: Character;
   name: string;
-  rarity: Rarity;
-  power: number;
+  text: string;
   emoji: string;
-  obtained: boolean;
 }
 
-const COOKIES: Cookie[] = [
-  { id: 1, name: 'Strawberry Cookie', rarity: 'common', power: 120, emoji: '🍓', obtained: false },
-  { id: 2, name: 'Wizard Cookie', rarity: 'rare', power: 250, emoji: '🧙', obtained: false },
-  { id: 3, name: 'Knight Cookie', rarity: 'rare', power: 280, emoji: '⚔️', obtained: false },
-  { id: 4, name: 'Princess Cookie', rarity: 'epic', power: 450, emoji: '👑', obtained: false },
-  { id: 5, name: 'Dragon Cookie', rarity: 'legendary', power: 850, emoji: '🐉', obtained: false },
-  { id: 6, name: 'Ninja Cookie', rarity: 'epic', power: 420, emoji: '🥷', obtained: false },
-  { id: 7, name: 'Angel Cookie', rarity: 'rare', power: 310, emoji: '👼', obtained: false },
-  { id: 8, name: 'Pirate Cookie', rarity: 'common', power: 150, emoji: '🏴‍☠️', obtained: false },
-  { id: 9, name: 'Mage Cookie', rarity: 'legendary', power: 920, emoji: '✨', obtained: false },
-  { id: 10, name: 'Demon Cookie', rarity: 'epic', power: 480, emoji: '😈', obtained: false },
+interface Choice {
+  text: string;
+  nextScene: number;
+  effect?: string;
+}
+
+interface Scene {
+  id: number;
+  background: string;
+  dialogs: DialogLine[];
+  choices?: Choice[];
+  isEnding?: boolean;
+}
+
+const STORY_SCENES: Scene[] = [
+  {
+    id: 0,
+    background: 'from-pink-200 via-yellow-100 to-orange-200',
+    dialogs: [
+      { id: 1, character: 'narrator', name: 'Narrator', text: 'Welcome to Cookie Kingdom, a magical land where cookies live in harmony...', emoji: '📖' },
+      { id: 2, character: 'narrator', name: 'Narrator', text: 'Until one day, the Dark Chocolate Dragon threatened the kingdom!', emoji: '📖' },
+      { id: 3, character: 'strawberry', name: 'Strawberry Cookie', text: 'Oh no! The kingdom is in danger! We need to do something!', emoji: '🍓' },
+    ],
+    choices: [
+      { text: 'Gather the heroes', nextScene: 1, effect: 'brave' },
+      { text: 'Run and hide', nextScene: 2, effect: 'coward' },
+    ],
+  },
+  {
+    id: 1,
+    background: 'from-blue-200 via-purple-200 to-pink-200',
+    dialogs: [
+      { id: 4, character: 'strawberry', name: 'Strawberry Cookie', text: "We need to find the bravest cookies in the kingdom!", emoji: '🍓' },
+      { id: 5, character: 'wizard', name: 'Wizard Cookie', text: 'I heard that noise! Count me in! My magic will protect us!', emoji: '🧙' },
+      { id: 6, character: 'knight', name: 'Knight Cookie', text: 'A knight never abandons their kingdom! I shall join you!', emoji: '⚔️' },
+    ],
+    choices: [
+      { text: 'Head to the castle', nextScene: 3, effect: 'castle' },
+      { text: 'Explore the forest', nextScene: 4, effect: 'forest' },
+    ],
+  },
+  {
+    id: 2,
+    background: 'from-gray-300 via-gray-400 to-gray-500',
+    dialogs: [
+      { id: 7, character: 'strawberry', name: 'Strawberry Cookie', text: 'Maybe hiding is safer...', emoji: '🍓' },
+      { id: 8, character: 'narrator', name: 'Narrator', text: 'But the Dragon found the hiding spot and destroyed everything...', emoji: '📖' },
+      { id: 9, character: 'narrator', name: 'Narrator', text: 'THE END - Bad Ending: Cowardice leads to ruin', emoji: '💀' },
+    ],
+    isEnding: true,
+  },
+  {
+    id: 3,
+    background: 'from-yellow-200 via-orange-200 to-red-200',
+    dialogs: [
+      { id: 10, character: 'princess', name: 'Princess Cookie', text: 'Heroes! Thank goodness you came! The Dragon is approaching!', emoji: '👑' },
+      { id: 11, character: 'wizard', name: 'Wizard Cookie', text: 'Princess, we need the legendary Cookie Sword!', emoji: '🧙' },
+      { id: 12, character: 'princess', name: 'Princess Cookie', text: 'Take it, brave ones. Save our kingdom!', emoji: '👑' },
+      { id: 13, character: 'knight', name: 'Knight Cookie', text: 'For the kingdom! Let us face the Dragon!', emoji: '⚔️' },
+      { id: 14, character: 'narrator', name: 'Narrator', text: 'With courage and teamwork, the heroes defeated the Dragon!', emoji: '📖' },
+      { id: 15, character: 'narrator', name: 'Narrator', text: 'THE END - Good Ending: United We Stand!', emoji: '🎉' },
+    ],
+    isEnding: true,
+  },
+  {
+    id: 4,
+    background: 'from-green-200 via-emerald-200 to-teal-200',
+    dialogs: [
+      { id: 16, character: 'wizard', name: 'Wizard Cookie', text: 'Look! In the forest! Ancient runes of power!', emoji: '🧙' },
+      { id: 17, character: 'knight', name: 'Knight Cookie', text: 'These runes... they grant us incredible strength!', emoji: '⚔️' },
+      { id: 18, character: 'strawberry', name: 'Strawberry Cookie', text: 'With this power, we can protect everyone!', emoji: '🍓' },
+      { id: 19, character: 'narrator', name: 'Narrator', text: 'The heroes used the ancient magic to seal the Dragon forever!', emoji: '📖' },
+      { id: 20, character: 'narrator', name: 'Narrator', text: 'THE END - Secret Ending: Power of the Ancients!', emoji: '✨' },
+    ],
+    isEnding: true,
+  },
 ];
 
-const rarityColors: Record<Rarity, string> = {
-  common: 'bg-gray-400',
-  rare: 'bg-blue-500',
-  epic: 'bg-purple-600',
-  legendary: 'bg-gradient-to-r from-yellow-400 via-pink-500 to-purple-600',
-};
-
-const rarityBorders: Record<Rarity, string> = {
-  common: 'border-gray-500',
-  rare: 'border-blue-600',
-  epic: 'border-purple-700',
-  legendary: 'border-yellow-500',
-};
-
 export default function Index() {
-  const [currentTab, setCurrentTab] = useState<'game' | 'shop' | 'collection' | 'settings'>('game');
-  const [cookies, setCookies] = useState<Cookie[]>(COOKIES);
-  const [coins, setCoins] = useState(1000);
-  const [isRolling, setIsRolling] = useState(false);
-  const [lastPulled, setLastPulled] = useState<Cookie | null>(null);
+  const [currentScene, setCurrentScene] = useState(0);
+  const [currentDialogIndex, setCurrentDialogIndex] = useState(0);
+  const [showChoices, setShowChoices] = useState(false);
+  const [visitedScenes, setVisitedScenes] = useState<number[]>([0]);
 
-  const handleGacha = () => {
-    if (coins < 100) {
-      toast.error('Not enough coins!');
-      return;
+  const scene = STORY_SCENES.find((s) => s.id === currentScene) || STORY_SCENES[0];
+  const currentDialog = scene.dialogs[currentDialogIndex];
+  const isLastDialog = currentDialogIndex === scene.dialogs.length - 1;
+
+  const handleNext = () => {
+    if (!isLastDialog) {
+      setCurrentDialogIndex(currentDialogIndex + 1);
+    } else if (scene.choices && !scene.isEnding) {
+      setShowChoices(true);
     }
+  };
 
-    setIsRolling(true);
-    setCoins(coins - 100);
+  const handleChoice = (nextScene: number) => {
+    setCurrentScene(nextScene);
+    setCurrentDialogIndex(0);
+    setShowChoices(false);
+    setVisitedScenes([...visitedScenes, nextScene]);
+  };
 
-    setTimeout(() => {
-      const random = Math.random();
-      let selectedRarity: Rarity;
+  const handleRestart = () => {
+    setCurrentScene(0);
+    setCurrentDialogIndex(0);
+    setShowChoices(false);
+    setVisitedScenes([0]);
+  };
 
-      if (random < 0.5) selectedRarity = 'common';
-      else if (random < 0.8) selectedRarity = 'rare';
-      else if (random < 0.95) selectedRarity = 'epic';
-      else selectedRarity = 'legendary';
-
-      const availableCookies = cookies.filter((c) => c.rarity === selectedRarity);
-      const pulledCookie = availableCookies[Math.floor(Math.random() * availableCookies.length)];
-
-      setCookies(
-        cookies.map((c) => (c.id === pulledCookie.id ? { ...c, obtained: true } : c))
-      );
-      setLastPulled(pulledCookie);
-      setIsRolling(false);
-
-      toast.success(`You got ${pulledCookie.name}!`, {
-        description: `${pulledCookie.rarity.toUpperCase()} - Power: ${pulledCookie.power}`,
-      });
-    }, 2000);
+  const characterColors: Record<Character, string> = {
+    narrator: 'text-gray-700',
+    strawberry: 'text-pink-600',
+    wizard: 'text-purple-600',
+    knight: 'text-blue-600',
+    princess: 'text-yellow-600',
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-pink-200 via-yellow-100 to-green-200 p-4">
-      <div className="max-w-6xl mx-auto">
+    <div className={`min-h-screen bg-gradient-to-br ${scene.background} p-4 transition-all duration-500`}>
+      <div className="max-w-4xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-8 pt-6">
-          <h1 className="text-4xl md:text-5xl mb-4 text-pink-600 drop-shadow-lg pixel-outline">
-            COOKIE KINGDOM
+        <div className="text-center mb-6 pt-4">
+          <h1 className="text-3xl md:text-4xl mb-2 text-pink-600 drop-shadow-lg">
+            🍪 COOKIE KINGDOM 🍪
           </h1>
-          <div className="flex justify-center gap-4 items-center">
-            <Badge className="text-lg px-4 py-2 bg-yellow-400 text-yellow-900 border-2 border-yellow-600">
-              💰 {coins}
-            </Badge>
+          <Badge className="text-sm px-3 py-1 bg-purple-500 text-white border-2 border-purple-700">
+            Visual Novel
+          </Badge>
+        </div>
+
+        {/* Progress */}
+        <div className="mb-4 flex justify-center gap-2">
+          {STORY_SCENES.map((s) => (
+            <div
+              key={s.id}
+              className={`w-3 h-3 rounded-full ${
+                visitedScenes.includes(s.id) ? 'bg-pink-500' : 'bg-gray-300'
+              }`}
+            />
+          ))}
+        </div>
+
+        {/* Main Visual Novel Screen */}
+        <Card className="border-4 border-black overflow-hidden animate-fade-in">
+          {/* Character Portrait */}
+          <div className="bg-gradient-to-b from-black/20 to-transparent p-8 min-h-[300px] flex items-center justify-center">
+            <div className="text-9xl animate-scale-in">
+              {currentDialog.emoji}
+            </div>
           </div>
-        </div>
 
-        {/* Navigation */}
-        <div className="flex justify-center gap-2 mb-8 flex-wrap">
-          <Button
-            onClick={() => setCurrentTab('game')}
-            variant={currentTab === 'game' ? 'default' : 'outline'}
-            className="text-xs md:text-sm px-3 py-2 border-2 border-black"
-          >
-            <Icon name="Gamepad2" size={16} className="mr-2" />
-            GAME
-          </Button>
-          <Button
-            onClick={() => setCurrentTab('shop')}
-            variant={currentTab === 'shop' ? 'default' : 'outline'}
-            className="text-xs md:text-sm px-3 py-2 border-2 border-black"
-          >
-            <Icon name="ShoppingBag" size={16} className="mr-2" />
-            SHOP
-          </Button>
-          <Button
-            onClick={() => setCurrentTab('collection')}
-            variant={currentTab === 'collection' ? 'default' : 'outline'}
-            className="text-xs md:text-sm px-3 py-2 border-2 border-black"
-          >
-            <Icon name="BookOpen" size={16} className="mr-2" />
-            COLLECTION
-          </Button>
-          <Button
-            onClick={() => setCurrentTab('settings')}
-            variant={currentTab === 'settings' ? 'default' : 'outline'}
-            className="text-xs md:text-sm px-3 py-2 border-2 border-black"
-          >
-            <Icon name="Settings" size={16} className="mr-2" />
-            SETTINGS
-          </Button>
-        </div>
+          {/* Dialog Box */}
+          <div className="bg-white/95 border-t-4 border-black p-6">
+            <div className="mb-3">
+              <Badge className={`${characterColors[currentDialog.character]} bg-white border-2 border-current text-base px-3 py-1`}>
+                {currentDialog.name}
+              </Badge>
+            </div>
+            <p className="text-sm md:text-base leading-relaxed mb-4 min-h-[60px]">
+              {currentDialog.text}
+            </p>
 
-        {/* Game Tab - Gacha System */}
-        {currentTab === 'game' && (
-          <div className="space-y-6 animate-fade-in">
-            <Card className="p-8 bg-gradient-to-br from-pink-300 to-pink-400 border-4 border-pink-600">
-              <h2 className="text-2xl mb-6 text-center text-white drop-shadow-md">
-                🎁 COOKIE GACHA
-              </h2>
-              <div className="flex flex-col items-center gap-6">
-                {lastPulled && !isRolling && (
-                  <Card
-                    className={`p-6 w-64 ${rarityBorders[lastPulled.rarity]} border-4 animate-scale-in`}
-                  >
-                    <div className="text-center">
-                      <div className="text-6xl mb-4">{lastPulled.emoji}</div>
-                      <h3 className="text-lg mb-2">{lastPulled.name}</h3>
-                      <Badge className={`${rarityColors[lastPulled.rarity]} text-white mb-2`}>
-                        {lastPulled.rarity.toUpperCase()}
-                      </Badge>
-                      <p className="text-sm">⚡ Power: {lastPulled.power}</p>
-                    </div>
-                  </Card>
-                )}
-                {isRolling && (
-                  <div className="text-6xl animate-bounce">🎲</div>
-                )}
+            {/* Action Buttons */}
+            <div className="flex justify-between items-center">
+              <div className="text-xs text-gray-500">
+                {currentDialogIndex + 1} / {scene.dialogs.length}
+              </div>
+              
+              {!showChoices && !scene.isEnding && (
                 <Button
-                  onClick={handleGacha}
-                  disabled={isRolling || coins < 100}
-                  size="lg"
-                  className="text-lg px-8 py-6 bg-gradient-to-r from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700 border-4 border-pink-800 text-white"
+                  onClick={handleNext}
+                  className="bg-pink-500 hover:bg-pink-600 text-white border-2 border-pink-700"
                 >
-                  {isRolling ? 'ROLLING...' : 'PULL (100 💰)'}
+                  {isLastDialog && scene.choices ? 'Choose' : 'Next'}
+                  <Icon name="ChevronRight" size={16} className="ml-1" />
                 </Button>
-                <p className="text-xs text-center opacity-75">
-                  50% Common • 30% Rare • 15% Epic • 5% Legendary
-                </p>
-              </div>
-            </Card>
+              )}
+
+              {!showChoices && scene.isEnding && isLastDialog && (
+                <Button
+                  onClick={handleRestart}
+                  className="bg-purple-500 hover:bg-purple-600 text-white border-2 border-purple-700"
+                >
+                  <Icon name="RotateCcw" size={16} className="mr-1" />
+                  Restart
+                </Button>
+              )}
+
+              {!showChoices && scene.isEnding && !isLastDialog && (
+                <Button
+                  onClick={handleNext}
+                  className="bg-pink-500 hover:bg-pink-600 text-white border-2 border-pink-700"
+                >
+                  Next
+                  <Icon name="ChevronRight" size={16} className="ml-1" />
+                </Button>
+              )}
+            </div>
+          </div>
+        </Card>
+
+        {/* Choices */}
+        {showChoices && scene.choices && (
+          <div className="mt-4 space-y-3 animate-fade-in">
+            <p className="text-center text-sm font-semibold">What will you do?</p>
+            {scene.choices.map((choice, idx) => (
+              <Button
+                key={idx}
+                onClick={() => handleChoice(choice.nextScene)}
+                className="w-full text-base py-6 bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white border-4 border-blue-800 hover-scale"
+              >
+                {choice.text}
+              </Button>
+            ))}
           </div>
         )}
 
-        {/* Shop Tab */}
-        {currentTab === 'shop' && (
-          <div className="space-y-6 animate-fade-in">
-            <Card className="p-8 bg-gradient-to-br from-yellow-300 to-orange-300 border-4 border-yellow-600">
-              <h2 className="text-2xl mb-6 text-center text-yellow-900">
-                🏪 COOKIE SHOP
-              </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <Card className="p-4 border-2 border-yellow-700 hover-scale cursor-pointer">
-                  <h3 className="text-lg mb-2">💎 100 Coins</h3>
-                  <p className="text-sm mb-2">$0.99</p>
-                  <Button className="w-full text-xs border-2 border-black">BUY</Button>
-                </Card>
-                <Card className="p-4 border-2 border-yellow-700 hover-scale cursor-pointer">
-                  <h3 className="text-lg mb-2">💎 500 Coins</h3>
-                  <p className="text-sm mb-2">$3.99</p>
-                  <Button className="w-full text-xs border-2 border-black">BUY</Button>
-                </Card>
-              </div>
-            </Card>
-          </div>
-        )}
-
-        {/* Collection Tab */}
-        {currentTab === 'collection' && (
-          <div className="space-y-6 animate-fade-in">
-            <Card className="p-8 bg-gradient-to-br from-purple-300 to-blue-300 border-4 border-purple-600">
-              <h2 className="text-2xl mb-6 text-center text-purple-900">
-                📖 COOKIE COLLECTION
-              </h2>
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-                {cookies.map((cookie) => (
-                  <Card
-                    key={cookie.id}
-                    className={`p-4 border-4 ${rarityBorders[cookie.rarity]} ${
-                      !cookie.obtained ? 'opacity-50 grayscale' : 'hover-scale'
-                    }`}
-                  >
-                    <div className="text-center">
-                      <div className="text-4xl mb-2">{cookie.obtained ? cookie.emoji : '❓'}</div>
-                      <p className="text-xs mb-1">{cookie.obtained ? cookie.name : '???'}</p>
-                      {cookie.obtained && (
-                        <>
-                          <Badge className={`${rarityColors[cookie.rarity]} text-white text-xs mb-1`}>
-                            {cookie.rarity[0].toUpperCase()}
-                          </Badge>
-                          <p className="text-xs">⚡{cookie.power}</p>
-                        </>
-                      )}
-                    </div>
-                  </Card>
-                ))}
-              </div>
-              <div className="mt-6 text-center">
-                <p className="text-sm">
-                  Collected: {cookies.filter((c) => c.obtained).length} / {cookies.length}
-                </p>
-              </div>
-            </Card>
-          </div>
-        )}
-
-        {/* Settings Tab */}
-        {currentTab === 'settings' && (
-          <div className="space-y-6 animate-fade-in">
-            <Card className="p-8 bg-gradient-to-br from-gray-300 to-gray-400 border-4 border-gray-600">
-              <h2 className="text-2xl mb-6 text-center text-gray-900">
-                ⚙️ SETTINGS
-              </h2>
-              <div className="space-y-4">
-                <div className="flex justify-between items-center">
-                  <span className="text-sm">Music</span>
-                  <Button variant="outline" size="sm" className="text-xs border-2 border-black">
-                    ON
-                  </Button>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-sm">Sound FX</span>
-                  <Button variant="outline" size="sm" className="text-xs border-2 border-black">
-                    ON
-                  </Button>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-sm">Notifications</span>
-                  <Button variant="outline" size="sm" className="text-xs border-2 border-black">
-                    ON
-                  </Button>
-                </div>
-              </div>
-            </Card>
-          </div>
-        )}
+        {/* Controls */}
+        <div className="mt-6 flex justify-center gap-3">
+          <Button
+            onClick={handleRestart}
+            variant="outline"
+            size="sm"
+            className="border-2 border-black text-xs"
+          >
+            <Icon name="Home" size={14} className="mr-1" />
+            Start Over
+          </Button>
+          <Button
+            variant="outline"
+            size="sm"
+            className="border-2 border-black text-xs"
+          >
+            <Icon name="Save" size={14} className="mr-1" />
+            Save
+          </Button>
+          <Button
+            variant="outline"
+            size="sm"
+            className="border-2 border-black text-xs"
+          >
+            <Icon name="Settings" size={14} className="mr-1" />
+            Options
+          </Button>
+        </div>
       </div>
     </div>
   );
