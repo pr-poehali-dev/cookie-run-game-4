@@ -4,7 +4,7 @@ import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import Icon from '@/components/ui/icon';
 
-type Character = 'gingerbrave' | 'dark' | 'wizard' | 'custard' | 'narrator' | 'espresso';
+type Character = 'silent' | 'dark' | 'gingerbrave' | 'pv' | 'narrator' | 'shadowmilk';
 
 interface DialogLine {
   id: number;
@@ -32,78 +32,78 @@ const DARK_ENCHANTRESS_IMG = 'https://cdn.poehali.dev/files/a3be490d-28f6-4609-8
 const STORY_SCENES: Scene[] = [
   {
     id: 0,
-    background: 'from-purple-900 via-black to-gray-900',
+    background: 'from-slate-900 via-gray-900 to-black',
     dialogs: [
-      { id: 1, character: 'narrator', name: '???', text: 'Cookie Kingdom. 3 часа ночи. Что-то пошло не так...', image: DARK_ENCHANTRESS_IMG },
-      { id: 2, character: 'gingerbrave', name: 'GingerBrave', text: 'РЕБЯТ, ВЫ ТОЛЬКО ПОСМОТРИТЕ НА ЭТО ДЕРЬМО!', image: DARK_ENCHANTRESS_IMG },
-      { id: 3, character: 'wizard', name: 'Wizard Cookie', text: 'Джинджер, я умоляю, у меня экзамен по тёмной магии завтра...', image: DARK_ENCHANTRESS_IMG },
-      { id: 4, character: 'gingerbrave', name: 'GingerBrave', text: 'Dark Enchantress Cookie ТАНЦУЕТ ФОРТНАЙТ ДЭНСЫ В ЦЕНТРЕ ГОРОДА!', image: DARK_ENCHANTRESS_IMG },
+      { id: 1, character: 'narrator', name: '???', text: 'Beast-Yeast. Тишина. Вечная тишина...', image: DARK_ENCHANTRESS_IMG },
+      { id: 2, character: 'silent', name: 'Silent Salt Cookie', text: '...', image: DARK_ENCHANTRESS_IMG },
+      { id: 3, character: 'shadowmilk', name: 'Shadow Milk', text: 'ОЙ СМОТРИТЕ КТО ПРОСНУЛСЯ! МОЛЧУН ВЕРНУЛСЯ!', image: DARK_ENCHANTRESS_IMG },
+      { id: 4, character: 'silent', name: 'Silent Salt Cookie', text: '... (что вообще происходит?)', image: DARK_ENCHANTRESS_IMG },
     ],
     choices: [
-      { text: 'Пойти посмотреть на этот цирк', nextScene: 1 },
-      { text: 'Игнорировать и спать дальше', nextScene: 2 },
+      { text: '... (ударить Shadow Milk)', nextScene: 1 },
+      { text: '... (промолчать)', nextScene: 2 },
     ],
   },
   {
     id: 1,
-    background: 'from-pink-500 via-purple-600 to-black',
+    background: 'from-red-900 via-purple-900 to-black',
     dialogs: [
-      { id: 5, character: 'dark', name: 'Dark Enchantress', text: '*делает orange justice* ЭТО МОЁ КОРОЛЕВСТВО ТЕПЕРЬ, ЛОХИ!', image: DARK_ENCHANTRESS_IMG },
-      { id: 6, character: 'custard', name: 'Custard Cookie III', text: 'Я... я король... зачем она это делает... папа...', image: DARK_ENCHANTRESS_IMG },
-      { id: 7, character: 'espresso', name: 'Espresso Cookie', text: 'Мне за это не платят достаточно.', image: DARK_ENCHANTRESS_IMG },
-      { id: 8, character: 'gingerbrave', name: 'GingerBrave', text: 'Окей, у меня есть план. Он тупой, но это план.', image: DARK_ENCHANTRESS_IMG },
+      { id: 5, character: 'shadowmilk', name: 'Shadow Milk', text: 'ОЙ! ОН УДАРИЛ МЕНЯ! ВПЕРВЫЕ ЗА 1000 ЛЕТ!', image: DARK_ENCHANTRESS_IMG },
+      { id: 6, character: 'dark', name: 'Dark Enchantress', text: 'Тихий Соль... ты вернулся чтобы всех избить?', image: DARK_ENCHANTRESS_IMG },
+      { id: 7, character: 'silent', name: 'Silent Salt Cookie', text: '...', image: DARK_ENCHANTRESS_IMG },
+      { id: 8, character: 'gingerbrave', name: 'GingerBrave', text: 'ОН ЖЕ ЛЕГЕНДАРНЫЙ ВОИН! ПОЧЕМУ ОН ТАК АГРЕССИВЕН?!', image: DARK_ENCHANTRESS_IMG },
     ],
     choices: [
-      { text: 'ВЫЗВАТЬ ЕЁ НА ДАНС-БАТТЛ', nextScene: 3 },
-      { text: 'Просто стоять и смотреть', nextScene: 4 },
-      { text: 'Позвонить в полицию печенек', nextScene: 5 },
+      { text: '... (продолжать бить всех)', nextScene: 3 },
+      { text: '... (остановиться)', nextScene: 4 },
+      { text: '... (уйти нахрен)', nextScene: 5 },
     ],
   },
   {
     id: 2,
-    background: 'from-orange-300 via-red-400 to-black',
+    background: 'from-gray-800 via-gray-900 to-black',
     dialogs: [
-      { id: 9, character: 'narrator', name: 'Narrator', text: 'Ты проснулся. Королевство в огне. Dark Enchantress забрала все Fortnite скины.', image: DARK_ENCHANTRESS_IMG },
-      { id: 10, character: 'gingerbrave', name: 'GingerBrave', text: 'НЕТ! МОЙ СКИН ДЖОНА УИКА!', image: DARK_ENCHANTRESS_IMG },
-      { id: 11, character: 'narrator', name: 'Narrator', text: 'КОНЦОВКА: "Никогда не игнорируй Fortnite данс в 3 ночи"', image: DARK_ENCHANTRESS_IMG },
+      { id: 9, character: 'shadowmilk', name: 'Shadow Milk', text: '*болтает 6 часов без остановки*', image: DARK_ENCHANTRESS_IMG },
+      { id: 10, character: 'silent', name: 'Silent Salt Cookie', text: '... (это пытка)', image: DARK_ENCHANTRESS_IMG },
+      { id: 11, character: 'narrator', name: 'Narrator', text: 'Silent Salt Cookie умер от разговоров. КОНЦОВКА: "Молчание - золото"', image: DARK_ENCHANTRESS_IMG },
     ],
     isEnding: true,
   },
   {
     id: 3,
-    background: 'from-yellow-400 via-pink-500 to-purple-600',
+    background: 'from-red-600 via-orange-600 to-black',
     dialogs: [
-      { id: 12, character: 'gingerbrave', name: 'GingerBrave', text: 'DANCE BATTLE! WINNER TAKES ALL!', image: DARK_ENCHANTRESS_IMG },
-      { id: 13, character: 'dark', name: 'Dark Enchantress', text: 'ТЫ СЕРЬЁЗНО? *смеётся* Ладно, попробуй!', image: DARK_ENCHANTRESS_IMG },
-      { id: 14, character: 'narrator', name: 'Narrator', text: '*эпичная музыка* GingerBrave делает impossible move!', image: DARK_ENCHANTRESS_IMG },
-      { id: 15, character: 'dark', name: 'Dark Enchantress', text: 'ЧТО... КАК... ЭТО ФИЗИЧЕСКИ НЕВОЗМОЖНО!', image: DARK_ENCHANTRESS_IMG },
-      { id: 16, character: 'wizard', name: 'Wizard Cookie', text: 'Он... он победил тёмную магию... танцем...', image: DARK_ENCHANTRESS_IMG },
-      { id: 17, character: 'narrator', name: 'Narrator', text: 'КОНЦОВКА: "Dance Dance Revolution"', image: DARK_ENCHANTRESS_IMG },
+      { id: 12, character: 'silent', name: 'Silent Salt Cookie', text: '... *достаёт меч*', image: DARK_ENCHANTRESS_IMG },
+      { id: 13, character: 'shadowmilk', name: 'Shadow Milk', text: 'СТОП СТОП СТОП! Я ЖЕ ШУЧУ!', image: DARK_ENCHANTRESS_IMG },
+      { id: 14, character: 'narrator', name: 'Narrator', text: '*эпичная драка* Silent Salt побеждает ВСЕХ одним взмахом меча', image: DARK_ENCHANTRESS_IMG },
+      { id: 15, character: 'dark', name: 'Dark Enchantress', text: 'КАК?! ОН МОЛЧА УНИЧТОЖИЛ ВСЕХ!', image: DARK_ENCHANTRESS_IMG },
+      { id: 16, character: 'pv', name: 'Pure Vanilla', text: 'Silent Salt... ты слишком силён для этого мира...', image: DARK_ENCHANTRESS_IMG },
+      { id: 17, character: 'narrator', name: 'Narrator', text: 'КОНЦОВКА: "Молчаливый Разрушитель"', image: DARK_ENCHANTRESS_IMG },
     ],
     isEnding: true,
   },
   {
     id: 4,
-    background: 'from-gray-600 via-gray-700 to-black',
+    background: 'from-blue-900 via-cyan-900 to-black',
     dialogs: [
-      { id: 18, character: 'dark', name: 'Dark Enchantress', text: '*продолжает танцевать 6 часов подряд*', image: DARK_ENCHANTRESS_IMG },
-      { id: 19, character: 'espresso', name: 'Espresso Cookie', text: 'Она... она просто не останавливается...', image: DARK_ENCHANTRESS_IMG },
-      { id: 20, character: 'custard', name: 'Custard Cookie III', text: 'Это наша жизнь теперь...', image: DARK_ENCHANTRESS_IMG },
-      { id: 21, character: 'narrator', name: 'Narrator', text: 'Спустя месяц все научились танцевать. Королевство стало диско-клубом.', image: DARK_ENCHANTRESS_IMG },
-      { id: 22, character: 'narrator', name: 'Narrator', text: 'КОНЦОВКА: "Eternal Disco"', image: DARK_ENCHANTRESS_IMG },
+      { id: 18, character: 'silent', name: 'Silent Salt Cookie', text: '... (хватит драться)', image: DARK_ENCHANTRESS_IMG },
+      { id: 19, character: 'shadowmilk', name: 'Shadow Milk', text: 'ОХ! Он ГОВОРИТ! Впервые за ВЕЧНОСТЬ!', image: DARK_ENCHANTRESS_IMG },
+      { id: 20, character: 'pv', name: 'Pure Vanilla', text: 'Silent Salt... ты научился словам?', image: DARK_ENCHANTRESS_IMG },
+      { id: 21, character: 'narrator', name: 'Narrator', text: 'Silent Salt Cookie стал разговорчивым. Все в ШОКЕ.', image: DARK_ENCHANTRESS_IMG },
+      { id: 22, character: 'narrator', name: 'Narrator', text: 'КОНЦОВКА: "Больше не Silent"', image: DARK_ENCHANTRESS_IMG },
     ],
     isEnding: true,
   },
   {
     id: 5,
-    background: 'from-blue-500 via-blue-700 to-black',
+    background: 'from-slate-700 via-gray-800 to-black',
     dialogs: [
-      { id: 23, character: 'gingerbrave', name: 'GingerBrave', text: '*звонит 911*', image: DARK_ENCHANTRESS_IMG },
-      { id: 24, character: 'narrator', name: 'Operator', text: 'Служба спасения печенек, что случилось?', image: DARK_ENCHANTRESS_IMG },
-      { id: 25, character: 'gingerbrave', name: 'GingerBrave', text: 'Dark Enchantress танцует фортнайт дэнсы на площади!', image: DARK_ENCHANTRESS_IMG },
-      { id: 26, character: 'narrator', name: 'Operator', text: '*кладёт трубку*', image: DARK_ENCHANTRESS_IMG },
-      { id: 27, character: 'espresso', name: 'Espresso Cookie', text: 'Даже полиция не хочет с этим разбираться.', image: DARK_ENCHANTRESS_IMG },
-      { id: 28, character: 'narrator', name: 'Narrator', text: 'КОНЦОВКА: "911 не работает"', image: DARK_ENCHANTRESS_IMG },
+      { id: 23, character: 'silent', name: 'Silent Salt Cookie', text: '... *уходит*', image: DARK_ENCHANTRESS_IMG },
+      { id: 24, character: 'shadowmilk', name: 'Shadow Milk', text: 'ОН ПРОСТО УШЁЛ! БРОСИЛ НАС!', image: DARK_ENCHANTRESS_IMG },
+      { id: 25, character: 'dark', name: 'Dark Enchantress', text: 'Silent Salt... такой загадочный...', image: DARK_ENCHANTRESS_IMG },
+      { id: 26, character: 'narrator', name: 'Narrator', text: 'Silent Salt Cookie вернулся спать на 1000 лет.', image: DARK_ENCHANTRESS_IMG },
+      { id: 27, character: 'pv', name: 'Pure Vanilla', text: 'Он... он просто не хочет с этим разбираться.', image: DARK_ENCHANTRESS_IMG },
+      { id: 28, character: 'narrator', name: 'Narrator', text: 'КОНЦОВКА: "Вечный Сон"', image: DARK_ENCHANTRESS_IMG },
     ],
     isEnding: true,
   },
@@ -143,11 +143,11 @@ export default function Index() {
 
   const characterColors: Record<Character, string> = {
     narrator: 'text-gray-200 bg-gray-800',
-    gingerbrave: 'text-orange-600 bg-orange-100',
+    silent: 'text-slate-300 bg-slate-800',
     dark: 'text-purple-300 bg-purple-900',
-    wizard: 'text-blue-600 bg-blue-100',
-    custard: 'text-yellow-600 bg-yellow-100',
-    espresso: 'text-amber-700 bg-amber-100',
+    shadowmilk: 'text-indigo-400 bg-indigo-900',
+    pv: 'text-yellow-300 bg-yellow-800',
+    gingerbrave: 'text-orange-600 bg-orange-100',
   };
 
   return (
