@@ -347,11 +347,7 @@ export default function Index() {
               {currentDialog.text}
             </p>
 
-            <div className="flex justify-between items-center">
-              <div className="text-xs text-gray-400">
-                {currentDialogIndex + 1} / {scene.dialogs.length}
-              </div>
-              
+            <div className="flex justify-end items-center">
               {!showChoices && !scene.isEnding && (
                 <Button
                   onClick={handleNext}
