@@ -4,7 +4,7 @@ import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import Icon from '@/components/ui/icon';
 
-type Character = 'silent' | 'dark' | 'gingerbrave' | 'pv' | 'narrator' | 'shadowmilk' | 'whitelily';
+type Character = 'silent' | 'narrator' | 'shadowmilk' | 'whitelily';
 
 interface DialogLine {
   id: number;
@@ -28,13 +28,11 @@ interface Scene {
   isEnding?: boolean;
 }
 
-const DARK_ENCHANTRESS_IMG = 'https://cdn.poehali.dev/files/a3be490d-28f6-4609-8956-966ea28c5950.png';
 const SILENT_SALT_SERIOUS_IMG = 'https://cdn.poehali.dev/files/e55512d6-4a21-4202-b5f6-ec147cadfd3f.png';
 const SILENT_SALT_SWORD_IMG = 'https://cdn.poehali.dev/files/b85e152c-da9d-4179-b4cf-fd6b9444d504.png';
 const SILENT_SALT_ANGRY_IMG = 'https://cdn.poehali.dev/files/cc7ea812-3f26-4c61-b27b-94d8043ab51d.png';
 const SHADOW_MILK_IMG = 'https://cdn.poehali.dev/files/1d62844f-3be9-459e-ae54-73b720c5b3cc.png';
 const SHADOW_MILK_SHOCKED_IMG = 'https://cdn.poehali.dev/files/a35670fa-9fbe-421f-9707-7f07730769dc.png';
-const GINGERBRAVE_IMG = 'https://cdn.poehali.dev/files/b2e09714-e096-4a07-97aa-3dfc1f7592e9.png';
 const WHITE_LILY_IMG = 'https://cdn.poehali.dev/files/f1c38424-3b81-4dd8-a740-8e43ce5464d0.png';
 const THRONE_HALL_BG = 'https://cdn.poehali.dev/files/b25e6897-fa6c-459a-bd82-d0e84f833b80.jpg';
 const FOREST_BG = 'https://cdn.poehali.dev/files/ca44aec4-70bf-48b1-9de1-b417d75b5eba.jpg';
@@ -44,9 +42,9 @@ const STORY_SCENES: Scene[] = [
     id: 0,
     background: 'from-slate-900 via-gray-900 to-black',
     dialogs: [
-      { id: 1, character: 'narrator', name: '???', text: 'Beast-Yeast. Место, где время остановилось тысячу лет назад...', image: DARK_ENCHANTRESS_IMG },
-      { id: 2, character: 'narrator', name: '???', text: 'Тишина. Вечная, непробиваемая тишина окутывает древние катакомбы.', image: DARK_ENCHANTRESS_IMG },
-      { id: 3, character: 'narrator', name: '???', text: 'В глубинах этой тьмы начинает пробуждаться нечто древнее...', image: DARK_ENCHANTRESS_IMG },
+      { id: 1, character: 'narrator', name: '???', text: 'Beast-Yeast. Место, где время остановилось тысячу лет назад...', image: SILENT_SALT_SERIOUS_IMG },
+      { id: 2, character: 'narrator', name: '???', text: 'Тишина. Вечная, непробиваемая тишина окутывает древние катакомбы.', image: SILENT_SALT_SERIOUS_IMG },
+      { id: 3, character: 'narrator', name: '???', text: 'В глубинах этой тьмы начинает пробуждаться нечто древнее...', image: SILENT_SALT_SERIOUS_IMG },
       { id: 4, character: 'silent', name: 'Silent Salt Cookie', text: '...', image: SILENT_SALT_SERIOUS_IMG },
       { id: 5, character: 'silent', name: 'Silent Salt Cookie', text: '... (где... я?)', image: SILENT_SALT_SERIOUS_IMG },
       { id: 6, character: 'silent', name: 'Silent Salt Cookie', text: '... (сколько времени прошло?)', image: SILENT_SALT_SERIOUS_IMG },
@@ -54,7 +52,7 @@ const STORY_SCENES: Scene[] = [
       { id: 8, character: 'shadowmilk', name: 'Shadow Milk', text: 'МОЛЧУН ВЕРНУЛСЯ! НАКОНЕЦ-ТО! Я ЖДАЛ ЭТОГО ТЫСЯЧУ ЛЕТ!', image: SHADOW_MILK_IMG },
       { id: 9, character: 'silent', name: 'Silent Salt Cookie', text: '... (Shadow Milk... этот голос...)', image: SILENT_SALT_SERIOUS_IMG },
       { id: 10, character: 'shadowmilk', name: 'Shadow Milk', text: 'Знаешь, я тут СТОЛЬКО историй придумал пока ты спал! Хочешь послушать?!', image: SHADOW_MILK_IMG },
-      { id: 11, character: 'dark', name: 'Dark Enchantress', text: 'Silent Salt... прошла целая эпоха с момента твоего запечатывания.', image: DARK_ENCHANTRESS_IMG },
+
       { id: 12, character: 'silent', name: 'Silent Salt Cookie', text: '... (что вообще происходит?)', image: SILENT_SALT_SERIOUS_IMG },
     ],
     choices: [
@@ -71,18 +69,16 @@ const STORY_SCENES: Scene[] = [
       { id: 14, character: 'shadowmilk', name: 'Shadow Milk', text: 'ОЙ! ОН УДАРИЛ МЕНЯ!', image: SHADOW_MILK_SHOCKED_IMG },
       { id: 15, character: 'shadowmilk', name: 'Shadow Milk', text: 'ВПЕРВЫЕ ЗА ТЫСЯЧУ ЛЕТ КТО-ТО МЕНЯ УДАРИЛ!', image: SHADOW_MILK_SHOCKED_IMG },
       { id: 16, character: 'shadowmilk', name: 'Shadow Milk', text: 'Знаешь что? Это было... неожиданно! Я ЛЮБЛЮ НЕОЖИДАННОСТИ!', image: SHADOW_MILK_IMG },
-      { id: 17, character: 'dark', name: 'Dark Enchantress', text: 'Silent Salt... ты действительно вернулся чтобы избить всех нас?', image: DARK_ENCHANTRESS_IMG },
+      { id: 17, character: 'shadowmilk', name: 'Shadow Milk', text: 'Ты действительно вернулся чтобы избить меня? КАКОЙ ПОВОРОТ!', image: SHADOW_MILK_SHOCKED_IMG },
       { id: 18, character: 'silent', name: 'Silent Salt Cookie', text: '...', image: SILENT_SALT_ANGRY_IMG },
       { id: 19, character: 'silent', name: 'Silent Salt Cookie', text: '... (он слишком громкий... всегда был громким...)', image: SILENT_SALT_ANGRY_IMG },
-      { id: 20, character: 'gingerbrave', name: 'GingerBrave', text: 'П-подождите! Он же легендарный воин из Древних!', image: GINGERBRAVE_IMG },
-      { id: 21, character: 'gingerbrave', name: 'GingerBrave', text: 'ПОЧЕМУ ОН ТАК АГРЕССИВЕН?! Мы просто хотели поговорить!', image: GINGERBRAVE_IMG },
-      { id: 22, character: 'silent', name: 'Silent Salt Cookie', text: '... (говорить... всегда только говорить...)', image: SILENT_SALT_ANGRY_IMG },
-      { id: 23, character: 'shadowmilk', name: 'Shadow Milk', text: 'ХАХАХА! Ну давай, Тихоня! Покажи нам всю свою ярость!', image: SHADOW_MILK_IMG },
+      { id: 20, character: 'shadowmilk', name: 'Shadow Milk', text: 'ОЙ! Ты выглядишь таким СЕРЬЁЗНЫМ! Расслабься, старина!', image: SHADOW_MILK_IMG },
+      { id: 21, character: 'silent', name: 'Silent Salt Cookie', text: '... (говорить... всегда только говорить...)', image: SILENT_SALT_ANGRY_IMG },
+      { id: 22, character: 'shadowmilk', name: 'Shadow Milk', text: 'ХАХАХА! Ну давай, Тихоня! Покажи нам всю свою ярость!', image: SHADOW_MILK_IMG },
     ],
     choices: [
       { text: '... (продолжать атаковать - пусть узнают силу молчания)', nextScene: 3 },
-      { id: 24, character: 'pv', name: 'Pure Vanilla', text: 'Silent Salt... пожалуйста, остановись. Мы не враги.', image: DARK_ENCHANTRESS_IMG },
-      { text: '... (остановиться и выслушать Pure Vanilla)', nextScene: 4 },
+      { text: '... (остановиться и успокоиться)', nextScene: 4 },
       { text: '... (просто уйти - устал от этого цирка)', nextScene: 5 },
     ],
   },
@@ -116,10 +112,10 @@ const STORY_SCENES: Scene[] = [
     dialogs: [
       { id: 12, character: 'silent', name: 'Silent Salt Cookie', text: '... *достаёт меч*', image: SILENT_SALT_SWORD_IMG },
       { id: 13, character: 'shadowmilk', name: 'Shadow Milk', text: 'СТОП СТОП СТОП! Я ЖЕ ШУЧУ!', image: SHADOW_MILK_SHOCKED_IMG },
-      { id: 14, character: 'narrator', name: 'Narrator', text: '*эпичная драка* Silent Salt побеждает ВСЕХ одним взмахом меча', image: DARK_ENCHANTRESS_IMG },
-      { id: 15, character: 'dark', name: 'Dark Enchantress', text: 'КАК?! ОН МОЛЧА УНИЧТОЖИЛ ВСЕХ!', image: DARK_ENCHANTRESS_IMG },
-      { id: 16, character: 'pv', name: 'Pure Vanilla', text: 'Silent Salt... ты слишком силён для этого мира...', image: DARK_ENCHANTRESS_IMG },
-      { id: 17, character: 'narrator', name: 'Narrator', text: 'КОНЦОВКА: "Молчаливый Разрушитель"', image: DARK_ENCHANTRESS_IMG },
+      { id: 14, character: 'narrator', name: 'Narrator', text: '*эпичная драка длится секунды*', image: SILENT_SALT_SWORD_IMG },
+      { id: 15, character: 'shadowmilk', name: 'Shadow Milk', text: '...Ой. Я проиграл. КАК ДРАМАТИЧНО!', image: SHADOW_MILK_SHOCKED_IMG },
+      { id: 16, character: 'narrator', name: 'Narrator', text: 'Silent Salt одним ударом побеждает Shadow Milk.', image: SILENT_SALT_SWORD_IMG },
+      { id: 17, character: 'narrator', name: 'Narrator', text: 'КОНЦОВКА: "Молчаливый Разрушитель"', image: SILENT_SALT_SERIOUS_IMG },
     ],
     isEnding: true,
   },
@@ -128,10 +124,10 @@ const STORY_SCENES: Scene[] = [
     background: 'from-blue-900 via-cyan-900 to-black',
     dialogs: [
       { id: 18, character: 'silent', name: 'Silent Salt Cookie', text: '... (хватит драться)', image: SILENT_SALT_SERIOUS_IMG },
-      { id: 19, character: 'shadowmilk', name: 'Shadow Milk', text: 'ОХ! Он ГОВОРИТ! Впервые за ВЕЧНОСТЬ!', image: SHADOW_MILK_SHOCKED_IMG },
-      { id: 20, character: 'pv', name: 'Pure Vanilla', text: 'Silent Salt... ты научился словам?', image: DARK_ENCHANTRESS_IMG },
-      { id: 21, character: 'narrator', name: 'Narrator', text: 'Silent Salt Cookie стал разговорчивым. Все в ШОКЕ.', image: DARK_ENCHANTRESS_IMG },
-      { id: 22, character: 'narrator', name: 'Narrator', text: 'КОНЦОВКА: "Больше не Silent"', image: DARK_ENCHANTRESS_IMG },
+      { id: 19, character: 'shadowmilk', name: 'Shadow Milk', text: 'ОХ! Ты остановился! Может ты не такой злой?', image: SHADOW_MILK_SHOCKED_IMG },
+      { id: 20, character: 'shadowmilk', name: 'Shadow Milk', text: 'Знаешь... я рад что ты проснулся. Было одиноко тут.', image: SHADOW_MILK_IMG },
+      { id: 21, character: 'narrator', name: 'Narrator', text: 'Silent Salt и Shadow Milk нашли понимание в молчании и словах.', image: SILENT_SALT_SERIOUS_IMG },
+      { id: 22, character: 'narrator', name: 'Narrator', text: 'КОНЦОВКА: "Противоположности"', image: SHADOW_MILK_IMG },
     ],
     isEnding: true,
   },
@@ -140,8 +136,8 @@ const STORY_SCENES: Scene[] = [
     background: 'from-slate-700 via-gray-800 to-black',
     dialogs: [
       { id: 23, character: 'silent', name: 'Silent Salt Cookie', text: '... *уходит*', image: SILENT_SALT_SERIOUS_IMG },
-      { id: 24, character: 'shadowmilk', name: 'Shadow Milk', text: 'ОН ПРОСТО УШЁЛ! БРОСИЛ НАС!', image: SHADOW_MILK_IMG },
-      { id: 25, character: 'dark', name: 'Dark Enchantress', text: 'Silent Salt... такой загадочный...', image: DARK_ENCHANTRESS_IMG },
+      { id: 24, character: 'shadowmilk', name: 'Shadow Milk', text: 'ОН ПРОСТО УШЁЛ! БРОСИЛ МЕНЯ! КАК ОБИДНО!', image: SHADOW_MILK_SHOCKED_IMG },
+      { id: 25, character: 'shadowmilk', name: 'Shadow Milk', text: 'Хотя... наверное ему нужно побыть одному. Я понимаю...', image: SHADOW_MILK_IMG },
     ],
     choices: [
       { text: '... (идти в лес)', nextScene: 6 },
@@ -187,8 +183,8 @@ const STORY_SCENES: Scene[] = [
     background: 'from-slate-700 via-gray-800 to-black',
     dialogs: [
       { id: 39, character: 'narrator', name: 'Narrator', text: 'Silent Salt Cookie вернулся спать на 1000 лет.', image: SILENT_SALT_SERIOUS_IMG },
-      { id: 40, character: 'pv', name: 'Pure Vanilla', text: 'Он... он просто не хочет с этим разбираться.', image: DARK_ENCHANTRESS_IMG },
-      { id: 41, character: 'narrator', name: 'Narrator', text: 'КОНЦОВКА: "Вечный Сон"', image: DARK_ENCHANTRESS_IMG },
+      { id: 40, character: 'narrator', name: 'Narrator', text: 'Иногда сон - лучший побег от реальности.', image: SILENT_SALT_SERIOUS_IMG },
+      { id: 41, character: 'narrator', name: 'Narrator', text: 'КОНЦОВКА: "Вечный Сон"', image: SILENT_SALT_SERIOUS_IMG },
     ],
     isEnding: true,
   },
@@ -198,11 +194,11 @@ const STORY_SCENES: Scene[] = [
     dialogs: [
       { id: 90, character: 'silent', name: 'Silent Salt Cookie', text: '... (мои воспоминания... они такие размытые...)', image: SILENT_SALT_SERIOUS_IMG },
       { id: 91, character: 'narrator', name: 'Narrator', text: 'Silent Salt закрывает глаза, пытаясь вспомнить...', image: SILENT_SALT_SERIOUS_IMG },
-      { id: 92, character: 'narrator', name: 'Narrator', text: '*ВОСПОМИНАНИЕ: Тысяча лет назад*', image: DARK_ENCHANTRESS_IMG },
+      { id: 92, character: 'narrator', name: 'Narrator', text: '*ВОСПОМИНАНИЕ: Тысяча лет назад*', image: SILENT_SALT_SWORD_IMG },
       { id: 93, character: 'silent', name: 'Silent Salt (прошлое)', text: '... (я был хранителем... защитником...)', image: SILENT_SALT_SWORD_IMG },
       { id: 94, character: 'narrator', name: 'Narrator', text: 'Образы великих битв. Молчаливый воин, защищающий невинных.', image: SILENT_SALT_SWORD_IMG },
       { id: 95, character: 'silent', name: 'Silent Salt (прошлое)', text: '... (но я был предан... запечатан... забыт...)', image: SILENT_SALT_ANGRY_IMG },
-      { id: 96, character: 'narrator', name: 'Narrator', text: 'Боль. Предательство. Тьма, поглощающая всё...', image: DARK_ENCHANTRESS_IMG },
+      { id: 96, character: 'narrator', name: 'Narrator', text: 'Боль. Предательство. Тьма, поглощающая всё...', image: SILENT_SALT_ANGRY_IMG },
       { id: 97, character: 'narrator', name: 'Narrator', text: '*ВОЗВРАЩЕНИЕ В НАСТОЯЩЕЕ*', image: SILENT_SALT_SERIOUS_IMG },
       { id: 98, character: 'silent', name: 'Silent Salt Cookie', text: '... (я помню теперь... всё)', image: SILENT_SALT_SERIOUS_IMG },
       { id: 99, character: 'shadowmilk', name: 'Shadow Milk', text: 'ОЙ! Ты выглядишь так, будто увидел призрака! Что случилось?', image: SHADOW_MILK_IMG },
@@ -210,42 +206,42 @@ const STORY_SCENES: Scene[] = [
     ],
     choices: [
       { text: '... (уйти в лес, чтобы обдумать прошлое)', nextScene: 6 },
-      { text: '... (столкнуться с Dark Enchantress о прошлом)', nextScene: 9 },
+      { text: '... (вернуться к Shadow Milk и обсудить прошлое)', nextScene: 9 },
     ],
   },
   {
     id: 9,
     background: 'from-purple-900 via-red-900 to-black',
     dialogs: [
-      { id: 101, character: 'silent', name: 'Silent Salt Cookie', text: '... *смотрит прямо на Dark Enchantress*', image: SILENT_SALT_ANGRY_IMG },
-      { id: 102, character: 'dark', name: 'Dark Enchantress', text: 'Что? Почему ты так смотришь на меня, Silent Salt?', image: DARK_ENCHANTRESS_IMG },
-      { id: 103, character: 'silent', name: 'Silent Salt Cookie', text: '... (ты... ты знаешь что случилось)', image: SILENT_SALT_ANGRY_IMG },
-      { id: 104, character: 'dark', name: 'Dark Enchantress', text: 'Ах... ты вспомнил. Интересно.', image: DARK_ENCHANTRESS_IMG },
-      { id: 105, character: 'dark', name: 'Dark Enchantress', text: 'Да, я знаю о твоём запечатывании. Я была там.', image: DARK_ENCHANTRESS_IMG },
-      { id: 106, character: 'silent', name: 'Silent Salt Cookie', text: '... *достаёт меч*', image: SILENT_SALT_SWORD_IMG },
-      { id: 107, character: 'dark', name: 'Dark Enchantress', text: 'Ты хочешь драться? После тысячи лет?', image: DARK_ENCHANTRESS_IMG },
-      { id: 108, character: 'shadowmilk', name: 'Shadow Milk', text: 'ОГО! Это становится интересно! ДРАКА ВЕКА!', image: SHADOW_MILK_IMG },
-      { id: 109, character: 'dark', name: 'Dark Enchantress', text: 'Но знай... прошлое нельзя изменить. Только принять.', image: DARK_ENCHANTRESS_IMG },
-      { id: 110, character: 'silent', name: 'Silent Salt Cookie', text: '... (может она права... но боль всё ещё здесь)', image: SILENT_SALT_ANGRY_IMG },
+      { id: 101, character: 'silent', name: 'Silent Salt Cookie', text: '... *возвращается к Shadow Milk*', image: SILENT_SALT_SERIOUS_IMG },
+      { id: 102, character: 'shadowmilk', name: 'Shadow Milk', text: 'О! Ты вернулся! Что-то не так?', image: SHADOW_MILK_IMG },
+      { id: 103, character: 'silent', name: 'Silent Salt Cookie', text: '... (я вспомнил... всё... предательство...)', image: SILENT_SALT_ANGRY_IMG },
+      { id: 104, character: 'shadowmilk', name: 'Shadow Milk', text: 'Ах... твоё запечатывание. Да, это была... тёмная история.', image: SHADOW_MILK_IMG },
+      { id: 105, character: 'shadowmilk', name: 'Shadow Milk', text: 'Знаешь, я тоже был предан когда-то. Все мы здесь такие.', image: SHADOW_MILK_IMG },
+      { id: 106, character: 'silent', name: 'Silent Salt Cookie', text: '... (ты... понимаешь?)', image: SILENT_SALT_SERIOUS_IMG },
+      { id: 107, character: 'shadowmilk', name: 'Shadow Milk', text: 'Конечно! Боль от предательства не уходит просто так.', image: SHADOW_MILK_IMG },
+      { id: 108, character: 'shadowmilk', name: 'Shadow Milk', text: 'Но знаешь что? Можно жить дальше. Или... можно мстить.', image: SHADOW_MILK_SHOCKED_IMG },
+      { id: 109, character: 'shadowmilk', name: 'Shadow Milk', text: 'Выбор за тобой, дружище!', image: SHADOW_MILK_IMG },
+      { id: 110, character: 'silent', name: 'Silent Salt Cookie', text: '... (он... на самом деле слушает меня)', image: SILENT_SALT_SERIOUS_IMG },
     ],
     choices: [
-      { text: '... (атаковать - месть важнее всего)', nextScene: 3 },
-      { text: '... (опустить меч - прошлое осталось в прошлом)', nextScene: 10 },
+      { text: '... (выбрать путь мести)', nextScene: 3 },
+      { text: '... (выбрать путь прощения)', nextScene: 10 },
     ],
   },
   {
     id: 10,
     background: 'from-blue-700 via-cyan-800 to-black',
     dialogs: [
-      { id: 111, character: 'silent', name: 'Silent Salt Cookie', text: '... *медленно опускает меч*', image: SILENT_SALT_SERIOUS_IMG },
-      { id: 112, character: 'dark', name: 'Dark Enchantress', text: 'Мудрый выбор.', image: DARK_ENCHANTRESS_IMG },
+      { id: 111, character: 'silent', name: 'Silent Salt Cookie', text: '... (я выбираю... прощение)', image: SILENT_SALT_SERIOUS_IMG },
+      { id: 112, character: 'shadowmilk', name: 'Shadow Milk', text: 'Серьёзно? ПРОЩЕНИЕ? Вау! Не ожидал!', image: SHADOW_MILK_SHOCKED_IMG },
       { id: 113, character: 'silent', name: 'Silent Salt Cookie', text: '... (месть не вернёт потерянное время)', image: SILENT_SALT_SERIOUS_IMG },
-      { id: 114, character: 'pv', name: 'Pure Vanilla', text: 'Silent Salt... ты научился прощению. Это редкий дар.', image: DARK_ENCHANTRESS_IMG },
-      { id: 115, character: 'shadowmilk', name: 'Shadow Milk', text: 'ЭХ! А я хотел посмотреть драку! Но это тоже круто!', image: SHADOW_MILK_IMG },
-      { id: 116, character: 'gingerbrave', name: 'GingerBrave', text: 'Вау! Вы правда легендарный воин... сильный духом!', image: GINGERBRAVE_IMG },
+      { id: 114, character: 'shadowmilk', name: 'Shadow Milk', text: 'Знаешь... это мудро. Прощение - это сложнее чем месть.', image: SHADOW_MILK_IMG },
+      { id: 115, character: 'shadowmilk', name: 'Shadow Milk', text: 'Я... я горжусь тобой, молчун!', image: SHADOW_MILK_IMG },
+      { id: 116, character: 'silent', name: 'Silent Salt Cookie', text: '... *слабая улыбка*', image: SILENT_SALT_SERIOUS_IMG },
       { id: 117, character: 'silent', name: 'Silent Salt Cookie', text: '... (может... я могу начать заново)', image: SILENT_SALT_SERIOUS_IMG },
-      { id: 118, character: 'narrator', name: 'Narrator', text: 'Silent Salt остался с древними, найдя покой в прощении.', image: SILENT_SALT_SERIOUS_IMG },
-      { id: 119, character: 'narrator', name: 'Narrator', text: 'Иногда истинная сила не в мече, а в способности отпустить прошлое.', image: DARK_ENCHANTRESS_IMG },
+      { id: 118, character: 'narrator', name: 'Narrator', text: 'Silent Salt и Shadow Milk стали неожиданными друзьями.', image: SILENT_SALT_SERIOUS_IMG },
+      { id: 119, character: 'narrator', name: 'Narrator', text: 'Иногда истинная сила не в мече, а в способности отпустить прошлое.', image: SHADOW_MILK_IMG },
       { id: 120, character: 'narrator', name: 'Narrator', text: '✧･ﾟ: *✧･ﾟ:* КОНЦОВКА: "Молчаливое Прощение" *:･ﾟ✧*:･ﾟ✧', image: SILENT_SALT_SERIOUS_IMG },
     ],
     isEnding: true,
@@ -301,10 +297,7 @@ export default function Index() {
   const characterColors: Record<Character, string> = {
     narrator: 'text-gray-200 bg-gray-800',
     silent: 'text-slate-300 bg-slate-800',
-    dark: 'text-purple-300 bg-purple-900',
     shadowmilk: 'text-indigo-400 bg-indigo-900',
-    pv: 'text-yellow-300 bg-yellow-800',
-    gingerbrave: 'text-orange-600 bg-orange-100',
     whitelily: 'text-white bg-green-700',
   };
 
