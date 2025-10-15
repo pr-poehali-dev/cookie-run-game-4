@@ -342,14 +342,14 @@ export default function Index() {
           ))}
         </div>
 
-        <Card className="border-0 overflow-hidden animate-fade-in shadow-2xl bg-transparent backdrop-blur-xl">
+        <Card className="border-0 overflow-hidden animate-fade-in shadow-2xl bg-transparent">
           <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 via-transparent to-pink-600/20 rounded-xl" />
           <div className="relative border-2 border-purple-500/30 rounded-xl overflow-hidden">
             <div 
               className="relative p-6 min-h-[450px] flex items-center justify-center bg-cover bg-center"
               style={{ backgroundImage: `url(${scene.backgroundImage || THRONE_HALL_BG})` }}
             >
-              <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70 backdrop-blur-sm" />
+              <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70" />
               {currentDialog.image && (
                 <div className="relative z-10">
                   <div className="absolute inset-0 bg-gradient-to-t from-purple-600/50 to-transparent blur-3xl" />
