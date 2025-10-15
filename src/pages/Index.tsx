@@ -28,6 +28,7 @@ interface Scene {
 }
 
 const DARK_ENCHANTRESS_IMG = 'https://cdn.poehali.dev/files/a3be490d-28f6-4609-8956-966ea28c5950.png';
+const SILENT_SALT_SERIOUS_IMG = 'https://cdn.poehali.dev/files/e55512d6-4a21-4202-b5f6-ec147cadfd3f.png';
 
 const STORY_SCENES: Scene[] = [
   {
@@ -35,9 +36,9 @@ const STORY_SCENES: Scene[] = [
     background: 'from-slate-900 via-gray-900 to-black',
     dialogs: [
       { id: 1, character: 'narrator', name: '???', text: 'Beast-Yeast. Тишина. Вечная тишина...', image: DARK_ENCHANTRESS_IMG },
-      { id: 2, character: 'silent', name: 'Silent Salt Cookie', text: '...', image: DARK_ENCHANTRESS_IMG },
+      { id: 2, character: 'silent', name: 'Silent Salt Cookie', text: '...', image: SILENT_SALT_SERIOUS_IMG },
       { id: 3, character: 'shadowmilk', name: 'Shadow Milk', text: 'ОЙ СМОТРИТЕ КТО ПРОСНУЛСЯ! МОЛЧУН ВЕРНУЛСЯ!', image: DARK_ENCHANTRESS_IMG },
-      { id: 4, character: 'silent', name: 'Silent Salt Cookie', text: '... (что вообще происходит?)', image: DARK_ENCHANTRESS_IMG },
+      { id: 4, character: 'silent', name: 'Silent Salt Cookie', text: '... (что вообще происходит?)', image: SILENT_SALT_SERIOUS_IMG },
     ],
     choices: [
       { text: '... (ударить Shadow Milk)', nextScene: 1 },
@@ -50,7 +51,7 @@ const STORY_SCENES: Scene[] = [
     dialogs: [
       { id: 5, character: 'shadowmilk', name: 'Shadow Milk', text: 'ОЙ! ОН УДАРИЛ МЕНЯ! ВПЕРВЫЕ ЗА 1000 ЛЕТ!', image: DARK_ENCHANTRESS_IMG },
       { id: 6, character: 'dark', name: 'Dark Enchantress', text: 'Тихий Соль... ты вернулся чтобы всех избить?', image: DARK_ENCHANTRESS_IMG },
-      { id: 7, character: 'silent', name: 'Silent Salt Cookie', text: '...', image: DARK_ENCHANTRESS_IMG },
+      { id: 7, character: 'silent', name: 'Silent Salt Cookie', text: '...', image: SILENT_SALT_SERIOUS_IMG },
       { id: 8, character: 'gingerbrave', name: 'GingerBrave', text: 'ОН ЖЕ ЛЕГЕНДАРНЫЙ ВОИН! ПОЧЕМУ ОН ТАК АГРЕССИВЕН?!', image: DARK_ENCHANTRESS_IMG },
     ],
     choices: [
@@ -64,7 +65,7 @@ const STORY_SCENES: Scene[] = [
     background: 'from-gray-800 via-gray-900 to-black',
     dialogs: [
       { id: 9, character: 'shadowmilk', name: 'Shadow Milk', text: '*болтает 6 часов без остановки*', image: DARK_ENCHANTRESS_IMG },
-      { id: 10, character: 'silent', name: 'Silent Salt Cookie', text: '... (это пытка)', image: DARK_ENCHANTRESS_IMG },
+      { id: 10, character: 'silent', name: 'Silent Salt Cookie', text: '... (это пытка)', image: SILENT_SALT_SERIOUS_IMG },
       { id: 11, character: 'narrator', name: 'Narrator', text: 'Silent Salt Cookie умер от разговоров. КОНЦОВКА: "Молчание - золото"', image: DARK_ENCHANTRESS_IMG },
     ],
     isEnding: true,
@@ -73,7 +74,7 @@ const STORY_SCENES: Scene[] = [
     id: 3,
     background: 'from-red-600 via-orange-600 to-black',
     dialogs: [
-      { id: 12, character: 'silent', name: 'Silent Salt Cookie', text: '... *достаёт меч*', image: DARK_ENCHANTRESS_IMG },
+      { id: 12, character: 'silent', name: 'Silent Salt Cookie', text: '... *достаёт меч*', image: SILENT_SALT_SERIOUS_IMG },
       { id: 13, character: 'shadowmilk', name: 'Shadow Milk', text: 'СТОП СТОП СТОП! Я ЖЕ ШУЧУ!', image: DARK_ENCHANTRESS_IMG },
       { id: 14, character: 'narrator', name: 'Narrator', text: '*эпичная драка* Silent Salt побеждает ВСЕХ одним взмахом меча', image: DARK_ENCHANTRESS_IMG },
       { id: 15, character: 'dark', name: 'Dark Enchantress', text: 'КАК?! ОН МОЛЧА УНИЧТОЖИЛ ВСЕХ!', image: DARK_ENCHANTRESS_IMG },
@@ -86,7 +87,7 @@ const STORY_SCENES: Scene[] = [
     id: 4,
     background: 'from-blue-900 via-cyan-900 to-black',
     dialogs: [
-      { id: 18, character: 'silent', name: 'Silent Salt Cookie', text: '... (хватит драться)', image: DARK_ENCHANTRESS_IMG },
+      { id: 18, character: 'silent', name: 'Silent Salt Cookie', text: '... (хватит драться)', image: SILENT_SALT_SERIOUS_IMG },
       { id: 19, character: 'shadowmilk', name: 'Shadow Milk', text: 'ОХ! Он ГОВОРИТ! Впервые за ВЕЧНОСТЬ!', image: DARK_ENCHANTRESS_IMG },
       { id: 20, character: 'pv', name: 'Pure Vanilla', text: 'Silent Salt... ты научился словам?', image: DARK_ENCHANTRESS_IMG },
       { id: 21, character: 'narrator', name: 'Narrator', text: 'Silent Salt Cookie стал разговорчивым. Все в ШОКЕ.', image: DARK_ENCHANTRESS_IMG },
@@ -98,7 +99,7 @@ const STORY_SCENES: Scene[] = [
     id: 5,
     background: 'from-slate-700 via-gray-800 to-black',
     dialogs: [
-      { id: 23, character: 'silent', name: 'Silent Salt Cookie', text: '... *уходит*', image: DARK_ENCHANTRESS_IMG },
+      { id: 23, character: 'silent', name: 'Silent Salt Cookie', text: '... *уходит*', image: SILENT_SALT_SERIOUS_IMG },
       { id: 24, character: 'shadowmilk', name: 'Shadow Milk', text: 'ОН ПРОСТО УШЁЛ! БРОСИЛ НАС!', image: DARK_ENCHANTRESS_IMG },
       { id: 25, character: 'dark', name: 'Dark Enchantress', text: 'Silent Salt... такой загадочный...', image: DARK_ENCHANTRESS_IMG },
       { id: 26, character: 'narrator', name: 'Narrator', text: 'Silent Salt Cookie вернулся спать на 1000 лет.', image: DARK_ENCHANTRESS_IMG },
