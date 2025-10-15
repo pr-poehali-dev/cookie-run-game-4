@@ -174,23 +174,14 @@ export default function Index() {
         </div>
 
         <Card className="border-4 border-purple-600 overflow-hidden animate-fade-in shadow-2xl shadow-purple-500/50">
-          <div className="relative bg-black/80 p-4 min-h-[350px] flex items-center justify-center">
+          <div className="relative bg-black/80 p-4 min-h-[400px] flex items-center justify-center">
             {currentDialog.image && (
               <img
                 src={currentDialog.image}
-                alt="Dark Enchantress"
-                className="absolute inset-0 w-full h-full object-cover opacity-60 animate-scale-in"
+                alt="Character Sprite"
+                className="w-full max-w-md h-auto object-contain animate-scale-in drop-shadow-[0_0_50px_rgba(139,92,246,0.8)]"
               />
             )}
-            <div className="relative z-10 text-center">
-              <div className="text-8xl animate-bounce drop-shadow-[0_0_30px_rgba(139,92,246,1)]">
-                {currentDialog.character === 'dark' ? '🌑' : 
-                 currentDialog.character === 'gingerbrave' ? '🍪' :
-                 currentDialog.character === 'wizard' ? '🧙' :
-                 currentDialog.character === 'custard' ? '👑' :
-                 currentDialog.character === 'espresso' ? '☕' : '📖'}
-              </div>
-            </div>
           </div>
 
           <div className="bg-gradient-to-b from-black/95 to-gray-900/95 border-t-4 border-purple-600 p-6">
