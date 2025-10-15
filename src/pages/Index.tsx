@@ -302,113 +302,143 @@ export default function Index() {
   };
 
   return (
-    <div className="min-h-screen p-4 transition-all duration-700 relative">
+    <div className="min-h-screen p-4 md:p-8 transition-all duration-700 relative overflow-hidden">
       <div 
-        className="absolute inset-0 bg-cover bg-center opacity-30"
+        className="absolute inset-0 bg-cover bg-center opacity-20 blur-sm scale-110"
         style={{ backgroundImage: `url(${THRONE_HALL_BG})` }}
       />
-      <div className={`absolute inset-0 bg-gradient-to-br ${scene.background} opacity-80`} />
-      <div className="max-w-4xl mx-auto relative z-10">
-        <div className="text-center mb-6 pt-4">
-          <h1 className="text-2xl md:text-3xl mb-2 text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.5)] font-bold tracking-wide">
-            ЧТО ЗА ПИЗДЕЦ ТУТ ПРОИСХОДИТ
-          </h1>
-          <Badge className="text-xs px-3 py-1 bg-red-600 text-white border-2 border-red-800">
+      <div className={`absolute inset-0 bg-gradient-to-br ${scene.background}`} />
+      
+      {/* Animated particles */}
+      <div className="absolute inset-0 opacity-30">
+        <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-purple-400 rounded-full animate-ping" style={{ animationDelay: '0s', animationDuration: '3s' }} />
+        <div className="absolute top-1/3 right-1/3 w-1 h-1 bg-pink-400 rounded-full animate-ping" style={{ animationDelay: '1s', animationDuration: '4s' }} />
+        <div className="absolute bottom-1/4 left-1/3 w-1.5 h-1.5 bg-blue-400 rounded-full animate-ping" style={{ animationDelay: '2s', animationDuration: '3.5s' }} />
+      </div>
+
+      <div className="max-w-5xl mx-auto relative z-10">
+        <div className="text-center mb-8 pt-4">
+          <div className="inline-block relative">
+            <h1 className="text-3xl md:text-5xl mb-3 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 font-black tracking-wider animate-gradient">
+              ЧТО ЗА ПИЗДЕЦ ТУТ ПРОИСХОДИТ
+            </h1>
+            <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg blur opacity-20 animate-pulse" />
+          </div>
+          <Badge className="text-xs md:text-sm px-4 py-2 bg-gradient-to-r from-red-600 to-red-700 text-white border-2 border-red-400 shadow-lg shadow-red-500/50 font-bold">
             Cookie Run: Chaos Edition
           </Badge>
         </div>
 
-        <div className="mb-4 flex justify-center gap-2">
+        <div className="mb-6 flex justify-center gap-2 flex-wrap">
           {STORY_SCENES.map((s) => (
             <div
               key={s.id}
-              className={`w-3 h-3 rounded-full transition-all ${
-                visitedScenes.includes(s.id) ? 'bg-purple-500 animate-sparkle' : 'bg-gray-500'
+              className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                visitedScenes.includes(s.id) 
+                  ? 'bg-gradient-to-r from-purple-400 to-pink-400 shadow-lg shadow-purple-500/50 scale-125' 
+                  : 'bg-gray-600/50 backdrop-blur-sm'
               }`}
             />
           ))}
         </div>
 
-        <Card className="border-4 border-purple-600 overflow-hidden animate-fade-in shadow-2xl shadow-purple-500/50">
-          <div 
-            className="relative p-4 min-h-[400px] flex items-center justify-center bg-cover bg-center"
-            style={{ backgroundImage: `url(${scene.backgroundImage || THRONE_HALL_BG})` }}
-          >
-            <div className="absolute inset-0 bg-black/40" />
-            {currentDialog.image && (
-              <img
-                src={currentDialog.image}
-                alt="Character Sprite"
-                className="w-full max-w-md h-auto object-contain animate-scale-in drop-shadow-[0_0_50px_rgba(139,92,246,0.8)] relative z-10"
-              />
-            )}
-          </div>
-
-          <div className="bg-gradient-to-b from-black/95 to-gray-900/95 border-t-4 border-purple-600 p-6">
-            <div className="mb-3">
-              <Badge className={`${characterColors[currentDialog.character]} border-2 border-current text-sm px-3 py-1 font-semibold`}>
-                {currentDialog.name}
-              </Badge>
+        <Card className="border-0 overflow-hidden animate-fade-in shadow-2xl bg-transparent backdrop-blur-xl">
+          <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 via-transparent to-pink-600/20 rounded-xl" />
+          <div className="relative border-2 border-purple-500/30 rounded-xl overflow-hidden">
+            <div 
+              className="relative p-6 min-h-[450px] flex items-center justify-center bg-cover bg-center"
+              style={{ backgroundImage: `url(${scene.backgroundImage || THRONE_HALL_BG})` }}
+            >
+              <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70 backdrop-blur-sm" />
+              {currentDialog.image && (
+                <div className="relative z-10">
+                  <div className="absolute inset-0 bg-gradient-to-t from-purple-600/50 to-transparent blur-3xl" />
+                  <img
+                    src={currentDialog.image}
+                    alt="Character Sprite"
+                    className="w-full max-w-lg h-auto object-contain animate-scale-in drop-shadow-[0_0_80px_rgba(139,92,246,0.9)] relative z-10 filter brightness-110"
+                  />
+                </div>
+              )}
             </div>
-            <p className="text-sm md:text-base leading-relaxed mb-4 min-h-[60px] text-white font-normal">
-              {currentDialog.text}
-            </p>
 
-            <div className="flex justify-between items-center gap-2">
-              {!showChoices && !scene.isEnding && isSceneVisited && !isLastDialog && (
-                <Button
-                  onClick={handleSkipToChoice}
-                  variant="outline"
-                  className="bg-gray-700 hover:bg-gray-600 text-gray-300 border-2 border-gray-500 text-xs"
-                >
-                  <Icon name="FastForward" size={14} className="mr-1" />
-                  ПРОПУСТИТЬ
-                </Button>
-              )}
-              <div className="flex-1" />
-              {!showChoices && !scene.isEnding && (
-                <Button
-                  onClick={handleNext}
-                  className="bg-purple-600 hover:bg-purple-700 text-white border-2 border-purple-400 shadow-lg shadow-purple-500/50"
-                >
-                  {isLastDialog && scene.choices ? 'ВЫБРАТЬ' : 'ДАЛЕЕ'}
-                  <Icon name="ChevronRight" size={16} className="ml-1" />
-                </Button>
-              )}
+            <div className="relative bg-gradient-to-b from-black/98 via-gray-900/98 to-black/98 backdrop-blur-md border-t-2 border-purple-500/50 p-6 md:p-8">
+              <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-purple-400 to-transparent" />
+              
+              <div className="mb-4">
+                <Badge className={`${characterColors[currentDialog.character]} border-2 border-current text-sm md:text-base px-4 py-2 font-bold shadow-lg rounded-full`}>
+                  {currentDialog.name}
+                </Badge>
+              </div>
+              
+              <div className="relative">
+                <p className="text-base md:text-lg leading-relaxed mb-6 min-h-[80px] text-white/95 font-medium">
+                  {currentDialog.text}
+                </p>
+              </div>
 
-              {!showChoices && scene.isEnding && isLastDialog && (
-                <Button
-                  onClick={handleRestart}
-                  className="bg-red-600 hover:bg-red-700 text-white border-2 border-red-400 animate-pulse"
-                >
-                  <Icon name="RotateCcw" size={16} className="mr-1" />
-                  ЗАНОВО
-                </Button>
-              )}
+              <div className="flex justify-between items-center gap-3">
+                {!showChoices && !scene.isEnding && isSceneVisited && !isLastDialog && (
+                  <Button
+                    onClick={handleSkipToChoice}
+                    variant="outline"
+                    className="bg-gray-800/80 hover:bg-gray-700/80 text-gray-300 border-2 border-gray-600/50 text-xs md:text-sm backdrop-blur-sm transition-all hover:scale-105"
+                  >
+                    <Icon name="FastForward" size={14} className="mr-1" />
+                    ПРОПУСТИТЬ
+                  </Button>
+                )}
+                <div className="flex-1" />
+                {!showChoices && !scene.isEnding && (
+                  <Button
+                    onClick={handleNext}
+                    className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white border-2 border-purple-400/50 shadow-lg shadow-purple-500/50 font-bold px-6 md:px-8 py-3 transition-all hover:scale-105 hover:shadow-xl hover:shadow-purple-500/70"
+                  >
+                    {isLastDialog && scene.choices ? '✨ ВЫБРАТЬ' : 'ДАЛЕЕ'}
+                    <Icon name="ChevronRight" size={18} className="ml-2" />
+                  </Button>
+                )}
 
-              {!showChoices && scene.isEnding && !isLastDialog && (
-                <Button
-                  onClick={handleNext}
-                  className="bg-purple-600 hover:bg-purple-700 text-white border-2 border-purple-400"
-                >
-                  ДАЛЕЕ
-                  <Icon name="ChevronRight" size={16} className="ml-1" />
-                </Button>
-              )}
+                {!showChoices && scene.isEnding && isLastDialog && (
+                  <Button
+                    onClick={handleRestart}
+                    className="bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-700 hover:to-orange-700 text-white border-2 border-red-400/50 animate-pulse shadow-lg shadow-red-500/50 font-bold px-6 md:px-8 py-3 transition-all hover:scale-105"
+                  >
+                    <Icon name="RotateCcw" size={18} className="mr-2" />
+                    🔄 ЗАНОВО
+                  </Button>
+                )}
+
+                {!showChoices && scene.isEnding && !isLastDialog && (
+                  <Button
+                    onClick={handleNext}
+                    className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white border-2 border-purple-400/50 shadow-lg shadow-purple-500/50 font-bold px-6 md:px-8 py-3 transition-all hover:scale-105"
+                  >
+                    ДАЛЕЕ
+                    <Icon name="ChevronRight" size={18} className="ml-2" />
+                  </Button>
+                )}
+              </div>
             </div>
           </div>
         </Card>
 
         {showChoices && scene.choices && (
-          <div className="mt-4 space-y-3 animate-fade-in">
-            <p className="text-center text-base font-semibold text-white drop-shadow-lg">ЧТО ДЕЛАТЬ?!</p>
+          <div className="mt-6 space-y-4 animate-fade-in">
+            <div className="text-center mb-4">
+              <p className="text-xl md:text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 drop-shadow-lg mb-2">
+                ⚡ ЧТО ДЕЛАТЬ?! ⚡
+              </p>
+              <div className="w-32 h-1 bg-gradient-to-r from-transparent via-purple-500 to-transparent mx-auto" />
+            </div>
             {scene.choices.map((choice, idx) => (
               <Button
                 key={idx}
                 onClick={() => handleChoice(choice.nextScene)}
-                className="w-full text-sm py-5 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white border-4 border-purple-400 hover-scale shadow-lg shadow-purple-500/50 font-semibold"
+                className="relative w-full text-sm md:text-base py-6 bg-gradient-to-r from-purple-600 via-pink-600 to-purple-600 hover:from-purple-700 hover:via-pink-700 hover:to-purple-700 text-white border-2 border-purple-400/50 shadow-xl shadow-purple-500/50 font-bold transition-all hover:scale-[1.02] hover:shadow-2xl hover:shadow-purple-500/70 backdrop-blur-sm overflow-hidden group"
               >
-                {choice.text}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000" />
+                <span className="relative z-10">{choice.text}</span>
               </Button>
             ))}
           </div>
