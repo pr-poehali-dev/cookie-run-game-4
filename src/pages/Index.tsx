@@ -29,6 +29,7 @@ interface Scene {
 
 const DARK_ENCHANTRESS_IMG = 'https://cdn.poehali.dev/files/a3be490d-28f6-4609-8956-966ea28c5950.png';
 const SILENT_SALT_SERIOUS_IMG = 'https://cdn.poehali.dev/files/e55512d6-4a21-4202-b5f6-ec147cadfd3f.png';
+const THRONE_HALL_BG = 'https://cdn.poehali.dev/files/b25e6897-fa6c-459a-bd82-d0e84f833b80.jpg';
 
 const STORY_SCENES: Scene[] = [
   {
@@ -152,8 +153,13 @@ export default function Index() {
   };
 
   return (
-    <div className={`min-h-screen bg-gradient-to-br ${scene.background} p-4 transition-all duration-700`}>
-      <div className="max-w-4xl mx-auto">
+    <div className="min-h-screen p-4 transition-all duration-700 relative">
+      <div 
+        className="absolute inset-0 bg-cover bg-center opacity-30"
+        style={{ backgroundImage: `url(${THRONE_HALL_BG})` }}
+      />
+      <div className={`absolute inset-0 bg-gradient-to-br ${scene.background} opacity-80`} />
+      <div className="max-w-4xl mx-auto relative z-10">
         <div className="text-center mb-6 pt-4">
           <h1 className="text-2xl md:text-3xl mb-2 text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.5)] font-bold tracking-wide">
             ЧТО ЗА ПИЗДЕЦ ТУТ ПРОИСХОДИТ
