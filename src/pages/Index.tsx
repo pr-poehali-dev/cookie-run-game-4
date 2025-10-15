@@ -22,6 +22,7 @@ interface Choice {
 interface Scene {
   id: number;
   background: string;
+  backgroundImage?: string;
   dialogs: DialogLine[];
   choices?: Choice[];
   isEnding?: boolean;
@@ -36,6 +37,7 @@ const SHADOW_MILK_SHOCKED_IMG = 'https://cdn.poehali.dev/files/a35670fa-9fbe-421
 const GINGERBRAVE_IMG = 'https://cdn.poehali.dev/files/b2e09714-e096-4a07-97aa-3dfc1f7592e9.png';
 const WHITE_LILY_IMG = 'https://cdn.poehali.dev/files/f1c38424-3b81-4dd8-a740-8e43ce5464d0.png';
 const THRONE_HALL_BG = 'https://cdn.poehali.dev/files/b25e6897-fa6c-459a-bd82-d0e84f833b80.jpg';
+const FOREST_BG = 'https://cdn.poehali.dev/files/ca44aec4-70bf-48b1-9de1-b417d75b5eba.jpg';
 
 const STORY_SCENES: Scene[] = [
   {
@@ -118,6 +120,7 @@ const STORY_SCENES: Scene[] = [
   {
     id: 6,
     background: 'from-green-800 via-emerald-900 to-black',
+    backgroundImage: FOREST_BG,
     dialogs: [
       { id: 29, character: 'narrator', name: 'Narrator', text: 'Silent Salt идёт в тёмный лес...', image: SILENT_SALT_SERIOUS_IMG },
       { id: 30, character: 'silent', name: 'Silent Salt Cookie', text: '... (так спокойно здесь)', image: SILENT_SALT_SERIOUS_IMG },
@@ -217,7 +220,7 @@ export default function Index() {
         <Card className="border-4 border-purple-600 overflow-hidden animate-fade-in shadow-2xl shadow-purple-500/50">
           <div 
             className="relative p-4 min-h-[400px] flex items-center justify-center bg-cover bg-center"
-            style={{ backgroundImage: `url(${THRONE_HALL_BG})` }}
+            style={{ backgroundImage: `url(${scene.backgroundImage || THRONE_HALL_BG})` }}
           >
             <div className="absolute inset-0 bg-black/40" />
             {currentDialog.image && (
