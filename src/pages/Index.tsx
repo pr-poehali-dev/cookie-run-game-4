@@ -182,12 +182,16 @@ export default function Index() {
         </div>
 
         <Card className="border-4 border-purple-600 overflow-hidden animate-fade-in shadow-2xl shadow-purple-500/50">
-          <div className="relative bg-black/80 p-4 min-h-[400px] flex items-center justify-center">
+          <div 
+            className="relative p-4 min-h-[400px] flex items-center justify-center bg-cover bg-center"
+            style={{ backgroundImage: `url(${THRONE_HALL_BG})` }}
+          >
+            <div className="absolute inset-0 bg-black/40" />
             {currentDialog.image && (
               <img
                 src={currentDialog.image}
                 alt="Character Sprite"
-                className="w-full max-w-md h-auto object-contain animate-scale-in drop-shadow-[0_0_50px_rgba(139,92,246,0.8)]"
+                className="w-full max-w-md h-auto object-contain animate-scale-in drop-shadow-[0_0_50px_rgba(139,92,246,0.8)] relative z-10"
               />
             )}
           </div>
