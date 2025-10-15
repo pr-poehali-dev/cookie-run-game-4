@@ -143,6 +143,23 @@
     }
   }
 
+  @keyframes dramatic-entrance {
+    0% {
+      transform: scale(0.3) rotate(-15deg);
+      opacity: 0;
+      filter: blur(10px);
+    }
+    50% {
+      transform: scale(1.2) rotate(5deg);
+      filter: blur(0px);
+    }
+    100% {
+      transform: scale(1) rotate(0deg);
+      opacity: 1;
+      filter: blur(0px);
+    }
+  }
+
   .animate-gradient {
     background-size: 200% 200%;
     animation: gradient 3s ease infinite;
@@ -154,5 +171,9 @@
 
   .animate-fade-in {
     animation: fade-in 0.4s ease-out;
+  }
+
+  .animate-dramatic-entrance {
+    animation: dramatic-entrance 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
   }
 }
