@@ -257,15 +257,29 @@ export default function Index() {
   const [currentDialogIndex, setCurrentDialogIndex] = useState(0);
   const [showChoices, setShowChoices] = useState(false);
   const [visitedScenes, setVisitedScenes] = useState<number[]>([0]);
+  const [seenDialogs, setSeenDialogs] = useState<Set<number>>(new Set());
 
   const scene = STORY_SCENES.find((s) => s.id === currentScene) || STORY_SCENES[0];
   const currentDialog = scene.dialogs[currentDialogIndex];
   const isLastDialog = currentDialogIndex === scene.dialogs.length - 1;
+  const hasSeenThisDialog = seenDialogs.has(currentDialog.id);
+  const isSceneVisited = visitedScenes.includes(currentScene);
 
   const handleNext = () => {
+    setSeenDialogs(prev => new Set(prev).add(currentDialog.id));
     if (!isLastDialog) {
       setCurrentDialogIndex(currentDialogIndex + 1);
     } else if (scene.choices && !scene.isEnding) {
+      setShowChoices(true);
+    }
+  };
+
+  const handleSkipToChoice = () => {
+    scene.dialogs.forEach(dialog => {
+      setSeenDialogs(prev => new Set(prev).add(dialog.id));
+    });
+    setCurrentDialogIndex(scene.dialogs.length - 1);
+    if (scene.choices && !scene.isEnding) {
       setShowChoices(true);
     }
   };
@@ -347,7 +361,18 @@ export default function Index() {
               {currentDialog.text}
             </p>
 
-            <div className="flex justify-end items-center">
+            <div className="flex justify-between items-center gap-2">
+              {!showChoices && !scene.isEnding && isSceneVisited && !isLastDialog && (
+                <Button
+                  onClick={handleSkipToChoice}
+                  variant="outline"
+                  className="bg-gray-700 hover:bg-gray-600 text-gray-300 border-2 border-gray-500 text-xs"
+                >
+                  <Icon name="FastForward" size={14} className="mr-1" />
+                  ПРОПУСТИТЬ
+                </Button>
+              )}
+              <div className="flex-1" />
               {!showChoices && !scene.isEnding && (
                 <Button
                   onClick={handleNext}
