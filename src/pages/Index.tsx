@@ -356,7 +356,9 @@ export default function Index() {
                   <img
                     src={currentDialog.image}
                     alt="Character Sprite"
-                    className="w-full max-w-lg h-auto object-contain animate-scale-in drop-shadow-[0_0_80px_rgba(139,92,246,0.9)] relative z-10 filter brightness-110"
+                    className={`w-full max-w-lg h-auto object-contain animate-scale-in drop-shadow-[0_0_80px_rgba(139,92,246,0.9)] relative z-10 filter brightness-110 transition-all duration-700 ${
+                      currentDialog.id <= 6 ? 'brightness-0' : ''
+                    }`}
                   />
                 </div>
               )}
