@@ -29,6 +29,7 @@ interface Scene {
 
 const DARK_ENCHANTRESS_IMG = 'https://cdn.poehali.dev/files/a3be490d-28f6-4609-8956-966ea28c5950.png';
 const SILENT_SALT_SERIOUS_IMG = 'https://cdn.poehali.dev/files/e55512d6-4a21-4202-b5f6-ec147cadfd3f.png';
+const SILENT_SALT_SWORD_IMG = 'https://cdn.poehali.dev/files/b85e152c-da9d-4179-b4cf-fd6b9444d504.png';
 const THRONE_HALL_BG = 'https://cdn.poehali.dev/files/b25e6897-fa6c-459a-bd82-d0e84f833b80.jpg';
 
 const STORY_SCENES: Scene[] = [
@@ -75,7 +76,7 @@ const STORY_SCENES: Scene[] = [
     id: 3,
     background: 'from-red-600 via-orange-600 to-black',
     dialogs: [
-      { id: 12, character: 'silent', name: 'Silent Salt Cookie', text: '... *достаёт меч*', image: SILENT_SALT_SERIOUS_IMG },
+      { id: 12, character: 'silent', name: 'Silent Salt Cookie', text: '... *достаёт меч*', image: SILENT_SALT_SWORD_IMG },
       { id: 13, character: 'shadowmilk', name: 'Shadow Milk', text: 'СТОП СТОП СТОП! Я ЖЕ ШУЧУ!', image: DARK_ENCHANTRESS_IMG },
       { id: 14, character: 'narrator', name: 'Narrator', text: '*эпичная драка* Silent Salt побеждает ВСЕХ одним взмахом меча', image: DARK_ENCHANTRESS_IMG },
       { id: 15, character: 'dark', name: 'Dark Enchantress', text: 'КАК?! ОН МОЛЧА УНИЧТОЖИЛ ВСЕХ!', image: DARK_ENCHANTRESS_IMG },
