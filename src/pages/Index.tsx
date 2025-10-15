@@ -4,7 +4,7 @@ import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import Icon from '@/components/ui/icon';
 
-type Character = 'silent' | 'dark' | 'gingerbrave' | 'pv' | 'narrator' | 'shadowmilk';
+type Character = 'silent' | 'dark' | 'gingerbrave' | 'pv' | 'narrator' | 'shadowmilk' | 'whitelily';
 
 interface DialogLine {
   id: number;
@@ -108,9 +108,36 @@ const STORY_SCENES: Scene[] = [
       { id: 23, character: 'silent', name: 'Silent Salt Cookie', text: '... *уходит*', image: SILENT_SALT_SERIOUS_IMG },
       { id: 24, character: 'shadowmilk', name: 'Shadow Milk', text: 'ОН ПРОСТО УШЁЛ! БРОСИЛ НАС!', image: SHADOW_MILK_IMG },
       { id: 25, character: 'dark', name: 'Dark Enchantress', text: 'Silent Salt... такой загадочный...', image: DARK_ENCHANTRESS_IMG },
-      { id: 26, character: 'narrator', name: 'Narrator', text: 'Silent Salt Cookie вернулся спать на 1000 лет.', image: DARK_ENCHANTRESS_IMG },
-      { id: 27, character: 'pv', name: 'Pure Vanilla', text: 'Он... он просто не хочет с этим разбираться.', image: DARK_ENCHANTRESS_IMG },
-      { id: 28, character: 'narrator', name: 'Narrator', text: 'КОНЦОВКА: "Вечный Сон"', image: DARK_ENCHANTRESS_IMG },
+    ],
+    choices: [
+      { text: '... (идти в лес)', nextScene: 6 },
+      { text: '... (вернуться в катакомбы молчания)', nextScene: 7 },
+    ],
+  },
+  {
+    id: 6,
+    background: 'from-green-800 via-emerald-900 to-black',
+    dialogs: [
+      { id: 29, character: 'narrator', name: 'Narrator', text: 'Silent Salt идёт в тёмный лес...', image: SILENT_SALT_SERIOUS_IMG },
+      { id: 30, character: 'silent', name: 'Silent Salt Cookie', text: '... (так спокойно здесь)', image: SILENT_SALT_SERIOUS_IMG },
+      { id: 31, character: 'narrator', name: 'Narrator', text: 'Он любуется природой, деревьями, тишиной...', image: SILENT_SALT_SERIOUS_IMG },
+      { id: 32, character: 'whitelily', name: 'White Lily Cookie', text: 'О! Здравствуйте... вы тоже любите лес?', image: DARK_ENCHANTRESS_IMG },
+      { id: 33, character: 'silent', name: 'Silent Salt Cookie', text: '... *кивает*', image: SILENT_SALT_SERIOUS_IMG },
+      { id: 34, character: 'whitelily', name: 'White Lily Cookie', text: 'Как приятно встретить кого-то, кто ценит тишину...', image: DARK_ENCHANTRESS_IMG },
+      { id: 35, character: 'silent', name: 'Silent Salt Cookie', text: '...', image: SILENT_SALT_SERIOUS_IMG },
+      { id: 36, character: 'whitelily', name: 'White Lily Cookie', text: 'Знаете... я думаю мы могли бы подружиться.', image: DARK_ENCHANTRESS_IMG },
+      { id: 37, character: 'narrator', name: 'Narrator', text: 'Silent Salt впервые за века почувствовал... покой.', image: SILENT_SALT_SERIOUS_IMG },
+      { id: 38, character: 'narrator', name: 'Narrator', text: 'КОНЦОВКА: "Тихая Дружба"', image: DARK_ENCHANTRESS_IMG },
+    ],
+    isEnding: true,
+  },
+  {
+    id: 7,
+    background: 'from-slate-700 via-gray-800 to-black',
+    dialogs: [
+      { id: 39, character: 'narrator', name: 'Narrator', text: 'Silent Salt Cookie вернулся спать на 1000 лет.', image: SILENT_SALT_SERIOUS_IMG },
+      { id: 40, character: 'pv', name: 'Pure Vanilla', text: 'Он... он просто не хочет с этим разбираться.', image: DARK_ENCHANTRESS_IMG },
+      { id: 41, character: 'narrator', name: 'Narrator', text: 'КОНЦОВКА: "Вечный Сон"', image: DARK_ENCHANTRESS_IMG },
     ],
     isEnding: true,
   },
@@ -155,6 +182,7 @@ export default function Index() {
     shadowmilk: 'text-indigo-400 bg-indigo-900',
     pv: 'text-yellow-300 bg-yellow-800',
     gingerbrave: 'text-orange-600 bg-orange-100',
+    whitelily: 'text-white bg-green-700',
   };
 
   return (
