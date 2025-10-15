@@ -33,6 +33,7 @@ const SILENT_SALT_SWORD_IMG = 'https://cdn.poehali.dev/files/b85e152c-da9d-4179-
 const SILENT_SALT_ANGRY_IMG = 'https://cdn.poehali.dev/files/cc7ea812-3f26-4c61-b27b-94d8043ab51d.png';
 const SHADOW_MILK_IMG = 'https://cdn.poehali.dev/files/1d62844f-3be9-459e-ae54-73b720c5b3cc.png';
 const SHADOW_MILK_SHOCKED_IMG = 'https://cdn.poehali.dev/files/a35670fa-9fbe-421f-9707-7f07730769dc.png';
+const GINGERBRAVE_IMG = 'https://cdn.poehali.dev/files/b2e09714-e096-4a07-97aa-3dfc1f7592e9.png';
 const THRONE_HALL_BG = 'https://cdn.poehali.dev/files/b25e6897-fa6c-459a-bd82-d0e84f833b80.jpg';
 
 const STORY_SCENES: Scene[] = [
@@ -57,7 +58,7 @@ const STORY_SCENES: Scene[] = [
       { id: 5, character: 'shadowmilk', name: 'Shadow Milk', text: 'ОЙ! ОН УДАРИЛ МЕНЯ! ВПЕРВЫЕ ЗА 1000 ЛЕТ!', image: SHADOW_MILK_SHOCKED_IMG },
       { id: 6, character: 'dark', name: 'Dark Enchantress', text: 'Тихий Соль... ты вернулся чтобы всех избить?', image: DARK_ENCHANTRESS_IMG },
       { id: 7, character: 'silent', name: 'Silent Salt Cookie', text: '...', image: SILENT_SALT_ANGRY_IMG },
-      { id: 8, character: 'gingerbrave', name: 'GingerBrave', text: 'ОН ЖЕ ЛЕГЕНДАРНЫЙ ВОИН! ПОЧЕМУ ОН ТАК АГРЕССИВЕН?!', image: DARK_ENCHANTRESS_IMG },
+      { id: 8, character: 'gingerbrave', name: 'GingerBrave', text: 'ОН ЖЕ ЛЕГЕНДАРНЫЙ ВОИН! ПОЧЕМУ ОН ТАК АГРЕССИВЕН?!', image: GINGERBRAVE_IMG },
     ],
     choices: [
       { text: '... (продолжать бить всех)', nextScene: 3 },
