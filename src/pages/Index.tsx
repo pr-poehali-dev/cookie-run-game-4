@@ -304,7 +304,7 @@ export default function Index() {
   return (
     <div className="min-h-screen p-4 md:p-8 transition-all duration-700 relative overflow-hidden">
       <div 
-        className="absolute inset-0 bg-cover bg-center opacity-20 blur-sm scale-110"
+        className="absolute inset-0 bg-cover bg-center opacity-30"
         style={{ backgroundImage: `url(${THRONE_HALL_BG})` }}
       />
       <div className={`absolute inset-0 bg-gradient-to-br ${scene.background}`} />
