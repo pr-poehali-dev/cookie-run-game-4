@@ -34,6 +34,7 @@ const SILENT_SALT_ANGRY_IMG = 'https://cdn.poehali.dev/files/cc7ea812-3f26-4c61-
 const SHADOW_MILK_IMG = 'https://cdn.poehali.dev/files/1d62844f-3be9-459e-ae54-73b720c5b3cc.png';
 const SHADOW_MILK_SHOCKED_IMG = 'https://cdn.poehali.dev/files/a35670fa-9fbe-421f-9707-7f07730769dc.png';
 const GINGERBRAVE_IMG = 'https://cdn.poehali.dev/files/b2e09714-e096-4a07-97aa-3dfc1f7592e9.png';
+const WHITE_LILY_IMG = 'https://cdn.poehali.dev/files/f1c38424-3b81-4dd8-a740-8e43ce5464d0.png';
 const THRONE_HALL_BG = 'https://cdn.poehali.dev/files/b25e6897-fa6c-459a-bd82-d0e84f833b80.jpg';
 
 const STORY_SCENES: Scene[] = [
@@ -121,13 +122,13 @@ const STORY_SCENES: Scene[] = [
       { id: 29, character: 'narrator', name: 'Narrator', text: 'Silent Salt идёт в тёмный лес...', image: SILENT_SALT_SERIOUS_IMG },
       { id: 30, character: 'silent', name: 'Silent Salt Cookie', text: '... (так спокойно здесь)', image: SILENT_SALT_SERIOUS_IMG },
       { id: 31, character: 'narrator', name: 'Narrator', text: 'Он любуется природой, деревьями, тишиной...', image: SILENT_SALT_SERIOUS_IMG },
-      { id: 32, character: 'whitelily', name: 'White Lily Cookie', text: 'О! Здравствуйте... вы тоже любите лес?', image: DARK_ENCHANTRESS_IMG },
+      { id: 32, character: 'whitelily', name: 'White Lily Cookie', text: 'О! Здравствуйте... вы тоже любите лес?', image: WHITE_LILY_IMG },
       { id: 33, character: 'silent', name: 'Silent Salt Cookie', text: '... *кивает*', image: SILENT_SALT_SERIOUS_IMG },
-      { id: 34, character: 'whitelily', name: 'White Lily Cookie', text: 'Как приятно встретить кого-то, кто ценит тишину...', image: DARK_ENCHANTRESS_IMG },
+      { id: 34, character: 'whitelily', name: 'White Lily Cookie', text: 'Как приятно встретить кого-то, кто ценит тишину...', image: WHITE_LILY_IMG },
       { id: 35, character: 'silent', name: 'Silent Salt Cookie', text: '...', image: SILENT_SALT_SERIOUS_IMG },
-      { id: 36, character: 'whitelily', name: 'White Lily Cookie', text: 'Знаете... я думаю мы могли бы подружиться.', image: DARK_ENCHANTRESS_IMG },
+      { id: 36, character: 'whitelily', name: 'White Lily Cookie', text: 'Знаете... я думаю мы могли бы подружиться.', image: WHITE_LILY_IMG },
       { id: 37, character: 'narrator', name: 'Narrator', text: 'Silent Salt впервые за века почувствовал... покой.', image: SILENT_SALT_SERIOUS_IMG },
-      { id: 38, character: 'narrator', name: 'Narrator', text: 'КОНЦОВКА: "Тихая Дружба"', image: DARK_ENCHANTRESS_IMG },
+      { id: 38, character: 'narrator', name: 'Narrator', text: 'КОНЦОВКА: "Тихая Дружба"', image: WHITE_LILY_IMG },
     ],
     isEnding: true,
   },
