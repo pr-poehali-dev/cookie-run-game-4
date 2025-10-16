@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -406,6 +406,51 @@ export default function Index() {
   const [visitedScenes, setVisitedScenes] = useState<number[]>([0]);
   const [seenDialogs, setSeenDialogs] = useState<Set<number>>(new Set());
 
+  useEffect(() => {
+    const lockOrientation = async () => {
+      try {
+        if (screen.orientation && screen.orientation.lock) {
+          await screen.orientation.lock('landscape');
+        }
+      } catch (err) {
+        console.log('Orientation lock not supported');
+      }
+    };
+    
+    lockOrientation();
+
+    const handleResize = () => {
+      if (window.innerHeight > window.innerWidth) {
+        document.body.style.transform = 'rotate(-90deg)';
+        document.body.style.transformOrigin = 'left top';
+        document.body.style.width = `${window.innerHeight}px`;
+        document.body.style.height = `${window.innerWidth}px`;
+        document.body.style.overflow = 'hidden';
+        document.body.style.position = 'absolute';
+        document.body.style.top = `${window.innerWidth}px`;
+        document.body.style.left = '0';
+      } else {
+        document.body.style.transform = '';
+        document.body.style.transformOrigin = '';
+        document.body.style.width = '';
+        document.body.style.height = '';
+        document.body.style.overflow = '';
+        document.body.style.position = '';
+        document.body.style.top = '';
+        document.body.style.left = '';
+      }
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    window.addEventListener('orientationchange', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('orientationchange', handleResize);
+    };
+  }, []);
+
   const scene = STORY_SCENES.find((s) => s.id === currentScene) || STORY_SCENES[0];
   const currentDialog = scene.dialogs[currentDialogIndex];
   const isLastDialog = currentDialogIndex === scene.dialogs.length - 1;
@@ -453,7 +498,7 @@ export default function Index() {
   };
 
   return (
-    <div className="fixed inset-0 transition-all duration-700 overflow-hidden">
+    <div className="fixed inset-0 transition-all duration-700 overflow-hidden w-screen h-screen">
       <div 
         className="absolute inset-0 bg-cover bg-center opacity-30"
         style={{ backgroundImage: `url(${THRONE_HALL_BG})` }}
