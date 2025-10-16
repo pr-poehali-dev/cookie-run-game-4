@@ -4,7 +4,7 @@ import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import Icon from '@/components/ui/icon';
 
-type Character = 'silent' | 'narrator' | 'shadowmilk' | 'whitelily';
+type Character = 'silent' | 'narrator' | 'shadowmilk' | 'whitelily' | 'purevanilla' | 'goldenecheese' | 'darkenchoco' | 'mystic';
 
 interface DialogLine {
   id: number;
@@ -54,7 +54,6 @@ const STORY_SCENES: Scene[] = [
       { id: 8, character: 'shadowmilk', name: 'Shadow Milk', text: 'МОЛЧУН ВЕРНУЛСЯ! НАКОНЕЦ-ТО! Я ЖДАЛ ЭТОГО ТЫСЯЧУ ЛЕТ!', image: SHADOW_MILK_IMG },
       { id: 9, character: 'silent', name: 'Silent Salt Cookie', text: '... (Shadow Milk... этот голос...)', image: SILENT_SALT_SERIOUS_IMG },
       { id: 10, character: 'shadowmilk', name: 'Shadow Milk', text: 'Знаешь, я тут СТОЛЬКО историй придумал пока ты спал! Хочешь послушать?!', image: SHADOW_MILK_IMG },
-
       { id: 12, character: 'silent', name: 'Silent Salt Cookie', text: '... (что вообще происходит?)', image: SILENT_SALT_SERIOUS_IMG },
     ],
     choices: [
@@ -79,9 +78,9 @@ const STORY_SCENES: Scene[] = [
       { id: 22, character: 'shadowmilk', name: 'Shadow Milk', text: 'ХАХАХА! Ну давай, Тихоня! Покажи нам всю свою ярость!', image: SHADOW_MILK_IMG },
     ],
     choices: [
-      { text: '... (продолжать атаковать - пусть узнают силу молчания)', nextScene: 3 },
+      { text: '... (продолжать атаковать)', nextScene: 3 },
       { text: '... (остановиться и успокоиться)', nextScene: 4 },
-      { text: '... (просто уйти - устал от этого цирка)', nextScene: 5 },
+      { text: '... (уйти из катакомб)', nextScene: 5 },
     ],
   },
   {
@@ -99,25 +98,23 @@ const STORY_SCENES: Scene[] = [
       { id: 33, character: 'silent', name: 'Silent Salt Cookie', text: '... (убей... меня... пожалуйста...)', image: SILENT_SALT_TIRED_IMG },
       { id: 34, character: 'shadowmilk', name: 'Shadow Milk', text: 'А ЕЩЁ! У меня есть теория о природе времени! Хочешь послушать?!', image: SHADOW_MILK_IMG },
       { id: 35, character: 'silent', name: 'Silent Salt Cookie', text: '... (это... пытка хуже чем тысяча лет запечатывания...)', image: SILENT_SALT_TIRED_IMG },
-      { id: 36, character: 'narrator', name: 'Narrator', text: '*12 часов спустя*', image: SHADOW_MILK_IMG },
-      { id: 37, character: 'silent', name: 'Silent Salt Cookie', text: '...', image: SILENT_SALT_SERIOUS_IMG },
-      { id: 38, character: 'narrator', name: 'Narrator', text: 'Silent Salt Cookie не выдержал бесконечного потока слов.', image: SILENT_SALT_ANGRY_IMG },
-      { id: 39, character: 'narrator', name: 'Narrator', text: 'Его разум растворился в океане болтовни Shadow Milk.', image: SILENT_SALT_ANGRY_IMG },
-      { id: 40, character: 'narrator', name: 'Narrator', text: 'Некоторые говорят, что он до сих пор слушает эти истории в вечности...', image: SHADOW_MILK_IMG },
-      { id: 41, character: 'narrator', name: 'Narrator', text: '✧･ﾟ: *✧･ﾟ:* КОНЦОВКА: "Молчание - золото, слова - пытка" *:･ﾟ✧*:･ﾟ✧', image: SHADOW_MILK_IMG },
     ],
-    isEnding: true,
+    choices: [
+      { text: '... (прервать его - ХВАТИТ)', nextScene: 10 },
+      { text: '... (продолжать слушать терпеливо)', nextScene: 11 },
+      { id: 36, text: '... (попытаться сбежать незаметно)', nextScene: 12 },
+    ],
   },
   {
     id: 3,
     background: 'from-red-600 via-orange-600 to-black',
     dialogs: [
-      { id: 12, character: 'silent', name: 'Silent Salt Cookie', text: '... *достаёт меч*', image: SILENT_SALT_SWORD_IMG },
-      { id: 13, character: 'shadowmilk', name: 'Shadow Milk', text: 'СТОП СТОП СТОП! Я ЖЕ ШУЧУ!', image: SHADOW_MILK_SHOCKED_IMG },
-      { id: 14, character: 'narrator', name: 'Narrator', text: '*эпичная драка длится секунды*', image: SILENT_SALT_SWORD_IMG },
-      { id: 15, character: 'shadowmilk', name: 'Shadow Milk', text: '...Ой. Я проиграл. КАК ДРАМАТИЧНО!', image: SHADOW_MILK_SHOCKED_IMG },
-      { id: 16, character: 'narrator', name: 'Narrator', text: 'Silent Salt одним ударом побеждает Shadow Milk.', image: SILENT_SALT_SWORD_IMG },
-      { id: 17, character: 'narrator', name: 'Narrator', text: 'КОНЦОВКА: "Молчаливый Разрушитель"', image: SILENT_SALT_SERIOUS_IMG },
+      { id: 37, character: 'silent', name: 'Silent Salt Cookie', text: '... *достаёт меч*', image: SILENT_SALT_SWORD_IMG },
+      { id: 38, character: 'shadowmilk', name: 'Shadow Milk', text: 'СТОП СТОП СТОП! Я ЖЕ ШУЧУ!', image: SHADOW_MILK_SHOCKED_IMG },
+      { id: 39, character: 'narrator', name: 'Narrator', text: '*эпичная драка*', image: SILENT_SALT_SWORD_IMG },
+      { id: 40, character: 'shadowmilk', name: 'Shadow Milk', text: '...Ой. Я проиграл. КАК ДРАМАТИЧНО!', image: SHADOW_MILK_SHOCKED_IMG },
+      { id: 41, character: 'narrator', name: 'Narrator', text: 'Silent Salt одним ударом побеждает Shadow Milk.', image: SILENT_SALT_SWORD_IMG },
+      { id: 42, character: 'narrator', name: 'Narrator', text: '✧･ﾟ: *✧･ﾟ:* КОНЦОВКА #1: "Молчаливый Разрушитель" *:･ﾟ✧*:･ﾟ✧', image: SILENT_SALT_SERIOUS_IMG },
     ],
     isEnding: true,
   },
@@ -125,25 +122,31 @@ const STORY_SCENES: Scene[] = [
     id: 4,
     background: 'from-blue-900 via-cyan-900 to-black',
     dialogs: [
-      { id: 18, character: 'silent', name: 'Silent Salt Cookie', text: '... (хватит драться)', image: SILENT_SALT_SERIOUS_IMG },
-      { id: 19, character: 'shadowmilk', name: 'Shadow Milk', text: 'ОХ! Ты остановился! Может ты не такой злой?', image: SHADOW_MILK_SHOCKED_IMG },
-      { id: 20, character: 'shadowmilk', name: 'Shadow Milk', text: 'Знаешь... я рад что ты проснулся. Было одиноко тут.', image: SHADOW_MILK_IMG },
-      { id: 21, character: 'narrator', name: 'Narrator', text: 'Silent Salt и Shadow Milk нашли понимание в молчании и словах.', image: SILENT_SALT_SERIOUS_IMG },
-      { id: 22, character: 'narrator', name: 'Narrator', text: 'КОНЦОВКА: "Противоположности"', image: SHADOW_MILK_IMG },
+      { id: 43, character: 'silent', name: 'Silent Salt Cookie', text: '... (хватит драться)', image: SILENT_SALT_SERIOUS_IMG },
+      { id: 44, character: 'shadowmilk', name: 'Shadow Milk', text: 'ОХ! Ты остановился! Может ты не такой злой?', image: SHADOW_MILK_SHOCKED_IMG },
+      { id: 45, character: 'shadowmilk', name: 'Shadow Milk', text: 'Знаешь... я рад что ты проснулся. Было одиноко тут.', image: SHADOW_MILK_IMG },
+      { id: 46, character: 'silent', name: 'Silent Salt Cookie', text: '... (одиноко?)', image: SILENT_SALT_SERIOUS_IMG },
+      { id: 47, character: 'shadowmilk', name: 'Shadow Milk', text: 'Да... тысяча лет в тишине... даже для меня это было слишком долго.', image: SHADOW_MILK_IMG },
+      { id: 48, character: 'shadowmilk', name: 'Shadow Milk', text: 'Может... мы могли бы попытаться понять друг друга?', image: SHADOW_MILK_IMG },
     ],
-    isEnding: true,
+    choices: [
+      { text: '... (дать ему шанс)', nextScene: 13 },
+      { text: '... (всё равно уйти)', nextScene: 5 },
+    ],
   },
   {
     id: 5,
     background: 'from-slate-700 via-gray-800 to-black',
     dialogs: [
-      { id: 23, character: 'silent', name: 'Silent Salt Cookie', text: '... *уходит*', image: SILENT_SALT_SERIOUS_IMG },
-      { id: 24, character: 'shadowmilk', name: 'Shadow Milk', text: 'ОН ПРОСТО УШЁЛ! БРОСИЛ МЕНЯ! КАК ОБИДНО!', image: SHADOW_MILK_SHOCKED_IMG },
-      { id: 25, character: 'shadowmilk', name: 'Shadow Milk', text: 'Хотя... наверное ему нужно побыть одному. Я понимаю...', image: SHADOW_MILK_IMG },
+      { id: 49, character: 'silent', name: 'Silent Salt Cookie', text: '... *уходит*', image: SILENT_SALT_SERIOUS_IMG },
+      { id: 50, character: 'shadowmilk', name: 'Shadow Milk', text: 'ОН ПРОСТО УШЁЛ! БРОСИЛ МЕНЯ! КАК ОБИДНО!', image: SHADOW_MILK_SHOCKED_IMG },
+      { id: 51, character: 'shadowmilk', name: 'Shadow Milk', text: 'Хотя... наверное ему нужно побыть одному. Я понимаю...', image: SHADOW_MILK_IMG },
+      { id: 52, character: 'narrator', name: 'Narrator', text: 'Silent Salt выходит из катакомб. Впереди два пути...', image: SILENT_SALT_SERIOUS_IMG },
     ],
     choices: [
-      { text: '... (идти в лес)', nextScene: 6 },
+      { text: '... (идти в мистический лес)', nextScene: 6 },
       { text: '... (вернуться в катакомбы молчания)', nextScene: 7 },
+      { text: '... (направиться к руинам древнего города)', nextScene: 14 },
     ],
   },
   {
@@ -151,42 +154,37 @@ const STORY_SCENES: Scene[] = [
     background: 'from-green-800 via-emerald-900 to-black',
     backgroundImage: FOREST_BG,
     dialogs: [
-      { id: 60, character: 'narrator', name: 'Narrator', text: 'Silent Salt медленно идёт прочь от шума и хаоса...', image: SILENT_SALT_SERIOUS_IMG },
-      { id: 61, character: 'silent', name: 'Silent Salt Cookie', text: '... (наконец-то... тишина)', image: SILENT_SALT_SERIOUS_IMG },
-      { id: 62, character: 'narrator', name: 'Narrator', text: 'Он входит в древний мистический лес. Бирюзовое свечение окутывает деревья.', image: SILENT_SALT_SERIOUS_IMG },
-      { id: 63, character: 'silent', name: 'Silent Salt Cookie', text: '... (здесь так спокойно... как давно я не чувствовал покоя)', image: SILENT_SALT_SERIOUS_IMG },
-      { id: 64, character: 'narrator', name: 'Narrator', text: 'Он любуется древними деревьями, слушает шёпот листвы, вдыхает аромат мха...', image: SILENT_SALT_SERIOUS_IMG },
-      { id: 65, character: 'silent', name: 'Silent Salt Cookie', text: '... (время здесь течёт по-другому... медленнее... мягче...)', image: SILENT_SALT_SERIOUS_IMG },
-      { id: 66, character: 'narrator', name: 'Narrator', text: 'Вдруг, среди деревьев появляется силуэт...', image: WHITE_LILY_IMG },
-      { id: 67, character: 'whitelily', name: 'White Lily Cookie', text: 'О... здравствуйте...', image: WHITE_LILY_IMG },
-      { id: 68, character: 'whitelily', name: 'White Lily Cookie', text: 'Прошу прощения, я не ожидала встретить кого-то здесь.', image: WHITE_LILY_IMG },
-      { id: 69, character: 'silent', name: 'Silent Salt Cookie', text: '... *медленно кивает*', image: SILENT_SALT_SERIOUS_IMG },
-      { id: 70, character: 'whitelily', name: 'White Lily Cookie', text: 'Вы тоже любите этот лес? Эту тишину и покой?', image: WHITE_LILY_IMG },
-      { id: 71, character: 'silent', name: 'Silent Salt Cookie', text: '... *снова кивает*', image: SILENT_SALT_SERIOUS_IMG },
-      { id: 72, character: 'whitelily', name: 'White Lily Cookie', text: 'Знаете... редко встретишь кого-то, кто понимает ценность молчания.', image: WHITE_LILY_IMG },
-      { id: 73, character: 'whitelily', name: 'White Lily Cookie', text: 'В мире, где все постоянно говорят, кричат, спорят...', image: WHITE_LILY_IMG },
-      { id: 74, character: 'whitelily', name: 'White Lily Cookie', text: '...такое облегчение просто сидеть в тишине с кем-то, кто её понимает.', image: WHITE_LILY_IMG },
-      { id: 75, character: 'silent', name: 'Silent Salt Cookie', text: '...', image: SILENT_SALT_SERIOUS_IMG },
-      { id: 76, character: 'narrator', name: 'Narrator', text: 'Они сидят рядом, наблюдая за танцем светлячков в бирюзовом сиянии.', image: WHITE_LILY_IMG },
-      { id: 77, character: 'whitelily', name: 'White Lily Cookie', text: 'Вы знаете... я всегда думала, что одиночество - это бремя.', image: WHITE_LILY_IMG },
-      { id: 78, character: 'whitelily', name: 'White Lily Cookie', text: 'Но сейчас я понимаю... иногда молчание вдвоём лучше тысячи слов.', image: WHITE_LILY_IMG },
-      { id: 79, character: 'silent', name: 'Silent Salt Cookie', text: '... (она... понимает)', image: SILENT_SALT_SERIOUS_IMG },
-      { id: 80, character: 'whitelily', name: 'White Lily Cookie', text: 'Хотите остаться здесь? Мы могли бы... просто быть рядом.', image: WHITE_LILY_IMG },
-      { id: 81, character: 'silent', name: 'Silent Salt Cookie', text: '... *медленная улыбка*', image: SILENT_SALT_SERIOUS_IMG },
-      { id: 82, character: 'narrator', name: 'Narrator', text: 'И впервые за тысячу лет Silent Salt почувствовал...', image: SILENT_SALT_SERIOUS_IMG },
-      { id: 83, character: 'narrator', name: 'Narrator', text: '...что его молчание - это не проклятие.', image: WHITE_LILY_IMG },
-      { id: 84, character: 'narrator', name: 'Narrator', text: 'Это дар, который кто-то наконец смог оценить.', image: WHITE_LILY_IMG },
-      { id: 85, character: 'narrator', name: 'Narrator', text: '✧･ﾟ: *✧･ﾟ:* КОНЦОВКА: "Тихая Гармония" *:･ﾟ✧*:･ﾟ✧', image: WHITE_LILY_IMG },
+      { id: 53, character: 'narrator', name: 'Narrator', text: 'Silent Salt медленно идёт прочь от шума и хаоса...', image: SILENT_SALT_SERIOUS_IMG },
+      { id: 54, character: 'silent', name: 'Silent Salt Cookie', text: '... (наконец-то... тишина)', image: SILENT_SALT_SERIOUS_IMG },
+      { id: 55, character: 'narrator', name: 'Narrator', text: 'Он входит в древний мистический лес. Бирюзовое свечение окутывает деревья.', image: SILENT_SALT_SERIOUS_IMG },
+      { id: 56, character: 'silent', name: 'Silent Salt Cookie', text: '... (здесь так спокойно...)', image: SILENT_SALT_SERIOUS_IMG },
+      { id: 57, character: 'narrator', name: 'Narrator', text: 'Вдруг, среди деревьев появляется силуэт...', image: WHITE_LILY_IMG },
+      { id: 58, character: 'whitelily', name: 'White Lily Cookie', text: 'О... здравствуйте...', image: WHITE_LILY_IMG },
+      { id: 59, character: 'whitelily', name: 'White Lily Cookie', text: 'Прошу прощения, я не ожидала встретить кого-то здесь.', image: WHITE_LILY_IMG },
+      { id: 60, character: 'silent', name: 'Silent Salt Cookie', text: '... *медленно кивает*', image: SILENT_SALT_SERIOUS_IMG },
+      { id: 61, character: 'whitelily', name: 'White Lily Cookie', text: 'Вы тоже любите этот лес? Эту тишину и покой?', image: WHITE_LILY_IMG },
+      { id: 62, character: 'silent', name: 'Silent Salt Cookie', text: '... *снова кивает*', image: SILENT_SALT_SERIOUS_IMG },
+      { id: 63, character: 'whitelily', name: 'White Lily Cookie', text: 'Знаете... редко встретишь кого-то, кто понимает ценность молчания.', image: WHITE_LILY_IMG },
+      { id: 64, character: 'whitelily', name: 'White Lily Cookie', text: 'В мире, где все постоянно говорят, кричат, спорят...', image: WHITE_LILY_IMG },
+      { id: 65, character: 'whitelily', name: 'White Lily Cookie', text: '...такое облегчение просто сидеть в тишине с кем-то, кто её понимает.', image: WHITE_LILY_IMG },
+      { id: 66, character: 'narrator', name: 'Narrator', text: 'Они сидят рядом, наблюдая за танцем светлячков.', image: WHITE_LILY_IMG },
+      { id: 67, character: 'whitelily', name: 'White Lily Cookie', text: 'Хотите остаться здесь? Мы могли бы... просто быть рядом.', image: WHITE_LILY_IMG },
+      { id: 68, character: 'silent', name: 'Silent Salt Cookie', text: '... *медленная улыбка*', image: SILENT_SALT_SERIOUS_IMG },
     ],
-    isEnding: true,
+    choices: [
+      { text: '... (остаться с White Lily)', nextScene: 15 },
+      { text: '... (продолжить путь одному)', nextScene: 16 },
+      { text: '... (предложить ей идти вместе)', nextScene: 17 },
+    ],
   },
   {
     id: 7,
     background: 'from-slate-700 via-gray-800 to-black',
     dialogs: [
-      { id: 39, character: 'narrator', name: 'Narrator', text: 'Silent Salt Cookie вернулся спать на 1000 лет.', image: SILENT_SALT_SERIOUS_IMG },
-      { id: 40, character: 'narrator', name: 'Narrator', text: 'Иногда сон - лучший побег от реальности.', image: SILENT_SALT_SERIOUS_IMG },
-      { id: 41, character: 'narrator', name: 'Narrator', text: 'КОНЦОВКА: "Вечный Сон"', image: SILENT_SALT_SERIOUS_IMG },
+      { id: 69, character: 'narrator', name: 'Narrator', text: 'Silent Salt Cookie вернулся в катакомбы молчания.', image: SILENT_SALT_SERIOUS_IMG },
+      { id: 70, character: 'silent', name: 'Silent Salt Cookie', text: '... (здесь... мой покой)', image: SILENT_SALT_SERIOUS_IMG },
+      { id: 71, character: 'narrator', name: 'Narrator', text: 'Он снова погружается в вечный сон...', image: SILENT_SALT_SERIOUS_IMG },
+      { id: 72, character: 'narrator', name: 'Narrator', text: '✧･ﾟ: *✧･ﾟ:* КОНЦОВКА #2: "Вечный Сон" *:･ﾟ✧*:･ﾟ✧', image: SILENT_SALT_SERIOUS_IMG },
     ],
     isEnding: true,
   },
@@ -194,206 +192,398 @@ const STORY_SCENES: Scene[] = [
     id: 8,
     background: 'from-indigo-900 via-purple-900 to-black',
     dialogs: [
-      { id: 90, character: 'silent', name: 'Silent Salt Cookie', text: '... (мои воспоминания... они такие размытые...)', image: SILENT_SALT_SERIOUS_IMG },
-      { id: 91, character: 'narrator', name: 'Narrator', text: 'Silent Salt закрывает глаза, пытаясь вспомнить...', image: SILENT_SALT_SERIOUS_IMG },
-      { id: 92, character: 'narrator', name: 'Narrator', text: '*ВОСПОМИНАНИЕ: Тысяча лет назад*', image: SALT_OF_SOLIDARITY_IMG },
-      { id: 93, character: 'silent', name: 'Salt of Solidarity', text: '... (я был хранителем... защитником...)', image: SALT_OF_SOLIDARITY_IMG },
-      { id: 94, character: 'narrator', name: 'Narrator', text: 'Образы великих битв. Молчаливый воин, защищающий невинных.', image: SALT_OF_SOLIDARITY_IMG },
-      { id: 95, character: 'silent', name: 'Silent Salt (прошлое)', text: '... (но я был предан... запечатан... забыт...)', image: SILENT_SALT_ANGRY_IMG },
-      { id: 96, character: 'narrator', name: 'Narrator', text: 'Боль. Предательство. Тьма, поглощающая всё...', image: SILENT_SALT_ANGRY_IMG },
-      { id: 97, character: 'narrator', name: 'Narrator', text: '*ВОЗВРАЩЕНИЕ В НАСТОЯЩЕЕ*', image: SILENT_SALT_SERIOUS_IMG },
-      { id: 98, character: 'silent', name: 'Silent Salt Cookie', text: '... (я помню теперь... всё)', image: SILENT_SALT_SERIOUS_IMG },
-      { id: 99, character: 'shadowmilk', name: 'Shadow Milk', text: 'ОЙ! Ты выглядишь так, будто увидел призрака! Что случилось?', image: SHADOW_MILK_IMG },
-      { id: 100, character: 'silent', name: 'Silent Salt Cookie', text: '... (я не могу оставаться здесь... не после того что я вспомнил)', image: SILENT_SALT_SERIOUS_IMG },
+      { id: 73, character: 'silent', name: 'Silent Salt Cookie', text: '... (мои воспоминания... они такие размытые...)', image: SILENT_SALT_SERIOUS_IMG },
+      { id: 74, character: 'narrator', name: 'Narrator', text: 'Silent Salt закрывает глаза, пытаясь вспомнить...', image: SILENT_SALT_SERIOUS_IMG },
+      { id: 75, character: 'narrator', name: 'Narrator', text: '*ВОСПОМИНАНИЕ: Тысяча лет назад*', image: SALT_OF_SOLIDARITY_IMG },
+      { id: 76, character: 'silent', name: 'Salt of Solidarity', text: '... (я был хранителем... защитником...)', image: SALT_OF_SOLIDARITY_IMG },
+      { id: 77, character: 'narrator', name: 'Narrator', text: 'Образы великих битв. Молчаливый воин, защищающий невинных.', image: SALT_OF_SOLIDARITY_IMG },
+      { id: 78, character: 'silent', name: 'Silent Salt (прошлое)', text: '... (но я был предан... запечатан... забыт...)', image: SILENT_SALT_ANGRY_IMG },
+      { id: 79, character: 'narrator', name: 'Narrator', text: 'Боль. Предательство. Тьма поглотила всё...', image: SILENT_SALT_ANGRY_IMG },
+      { id: 80, character: 'shadowmilk', name: 'Shadow Milk', text: 'Эй-эй! Ты в порядке? Ты внезапно застыл!', image: SHADOW_MILK_SHOCKED_IMG },
+      { id: 81, character: 'silent', name: 'Silent Salt Cookie', text: '... (воспоминания... слишком болезненны...)', image: SILENT_SALT_ANGRY_IMG },
     ],
     choices: [
-      { text: '... (уйти в лес, чтобы обдумать прошлое)', nextScene: 6 },
-      { text: '... (вернуться к Shadow Milk и обсудить прошлое)', nextScene: 9 },
-    ],
-  },
-  {
-    id: 9,
-    background: 'from-purple-900 via-red-900 to-black',
-    dialogs: [
-      { id: 101, character: 'silent', name: 'Silent Salt Cookie', text: '... *возвращается к Shadow Milk*', image: SILENT_SALT_SERIOUS_IMG },
-      { id: 102, character: 'shadowmilk', name: 'Shadow Milk', text: 'О! Ты вернулся! Что-то не так?', image: SHADOW_MILK_IMG },
-      { id: 103, character: 'silent', name: 'Silent Salt Cookie', text: '... (я вспомнил... всё... предательство...)', image: SILENT_SALT_ANGRY_IMG },
-      { id: 104, character: 'shadowmilk', name: 'Shadow Milk', text: 'Ах... твоё запечатывание. Да, это была... тёмная история.', image: SHADOW_MILK_IMG },
-      { id: 105, character: 'shadowmilk', name: 'Shadow Milk', text: 'Знаешь, я тоже был предан когда-то. Все мы здесь такие.', image: SHADOW_MILK_IMG },
-      { id: 106, character: 'silent', name: 'Silent Salt Cookie', text: '... (ты... понимаешь?)', image: SILENT_SALT_SERIOUS_IMG },
-      { id: 107, character: 'shadowmilk', name: 'Shadow Milk', text: 'Конечно! Боль от предательства не уходит просто так.', image: SHADOW_MILK_IMG },
-      { id: 108, character: 'shadowmilk', name: 'Shadow Milk', text: 'Но знаешь что? Можно жить дальше. Или... можно мстить.', image: SHADOW_MILK_SHOCKED_IMG },
-      { id: 109, character: 'shadowmilk', name: 'Shadow Milk', text: 'Выбор за тобой, дружище!', image: SHADOW_MILK_IMG },
-      { id: 110, character: 'silent', name: 'Silent Salt Cookie', text: '... (он... на самом деле слушает меня)', image: SILENT_SALT_SERIOUS_IMG },
-    ],
-    choices: [
-      { text: '... (выбрать путь мести)', nextScene: 3 },
-      { text: '... (выбрать путь прощения)', nextScene: 10 },
+      { text: '... (продолжить вспоминать - нужно знать правду)', nextScene: 18 },
+      { text: '... (остановиться - прошлое должно остаться в прошлом)', nextScene: 19 },
+      { text: '... (спросить Shadow Milk о прошлом)', nextScene: 20 },
     ],
   },
   {
     id: 10,
-    background: 'from-blue-700 via-cyan-800 to-black',
+    background: 'from-orange-900 via-red-900 to-black',
     dialogs: [
-      { id: 111, character: 'silent', name: 'Silent Salt Cookie', text: '... (я выбираю... прощение)', image: SILENT_SALT_SERIOUS_IMG },
-      { id: 112, character: 'shadowmilk', name: 'Shadow Milk', text: 'Серьёзно? ПРОЩЕНИЕ? Вау! Не ожидал!', image: SHADOW_MILK_SHOCKED_IMG },
-      { id: 113, character: 'silent', name: 'Silent Salt Cookie', text: '... (месть не вернёт потерянное время)', image: SILENT_SALT_SERIOUS_IMG },
-      { id: 114, character: 'shadowmilk', name: 'Shadow Milk', text: 'Знаешь... это мудро. Прощение - это сложнее чем месть.', image: SHADOW_MILK_IMG },
-      { id: 115, character: 'shadowmilk', name: 'Shadow Milk', text: 'Я... я горжусь тобой, молчун!', image: SHADOW_MILK_IMG },
-      { id: 116, character: 'silent', name: 'Silent Salt Cookie', text: '... *слабая улыбка*', image: SILENT_SALT_SERIOUS_IMG },
-      { id: 117, character: 'silent', name: 'Silent Salt Cookie', text: '... (может... я могу начать заново)', image: SILENT_SALT_SERIOUS_IMG },
+      { id: 82, character: 'silent', name: 'Silent Salt Cookie', text: 'ХВАТИТ!', image: SILENT_SALT_ANGRY_IMG },
+      { id: 83, character: 'shadowmilk', name: 'Shadow Milk', text: '...', image: SHADOW_MILK_SHOCKED_IMG },
+      { id: 84, character: 'shadowmilk', name: 'Shadow Milk', text: 'Ты... ты ЗАГОВОРИЛ?!', image: SHADOW_MILK_SHOCKED_IMG },
+      { id: 85, character: 'narrator', name: 'Narrator', text: 'В катакомбах воцарилась абсолютная тишина.', image: SHADOW_MILK_SHOCKED_IMG },
+      { id: 86, character: 'shadowmilk', name: 'Shadow Milk', text: 'Впервые... за тысячу лет... ты произнёс слово...', image: SHADOW_MILK_IMG },
+      { id: 87, character: 'silent', name: 'Silent Salt Cookie', text: '... (что я наделал...)', image: SILENT_SALT_SERIOUS_IMG },
     ],
     choices: [
-      { text: '... (остаться с Shadow Milk и стать друзьями)', nextScene: 11 },
-      { text: '... (отправиться искать других зверей)', nextScene: 12 },
-      { text: '... (покинуть катакомбы навсегда)', nextScene: 13 },
+      { text: 'Продолжать говорить', nextScene: 21 },
+      { text: '... (вернуться к молчанию)', nextScene: 22 },
     ],
   },
   {
     id: 11,
-    background: 'from-purple-700 via-indigo-800 to-black',
+    background: 'from-gray-800 via-gray-900 to-black',
     dialogs: [
-      { id: 118, character: 'shadowmilk', name: 'Shadow Milk', text: 'ТЫ ОСТАЁШЬСЯ?! ЭТО ЛУЧШИЙ ДЕНЬ ЗА ТЫСЯЧУ ЛЕТ!', image: SHADOW_MILK_IMG },
-      { id: 119, character: 'silent', name: 'Silent Salt Cookie', text: '... (возможно, одиночество было не лучшим решением)', image: SILENT_SALT_SERIOUS_IMG },
-      { id: 120, character: 'shadowmilk', name: 'Shadow Milk', text: 'Знаешь... у меня есть СТОЛЬКО планов для нас двоих!', image: SHADOW_MILK_IMG },
-      { id: 121, character: 'shadowmilk', name: 'Shadow Milk', text: 'Мы можем создать ТЕАТРАЛЬНУЮ ТРУППУ! Ты будешь молчаливым героем!', image: SHADOW_MILK_IMG },
-      { id: 122, character: 'silent', name: 'Silent Salt Cookie', text: '... (во что я ввязался...)', image: SILENT_SALT_TIRED_IMG },
-      { id: 123, character: 'shadowmilk', name: 'Shadow Milk', text: 'Или ЦИРК! Я буду жонглёром иллюзий, а ты - таинственным фокусником!', image: SHADOW_MILK_IMG },
-      { id: 124, character: 'silent', name: 'Silent Salt Cookie', text: '... *вздыхает*', image: SILENT_SALT_SERIOUS_IMG },
-      { id: 125, character: 'narrator', name: 'Narrator', text: 'И так началась странная, но искренняя дружба...', image: SHADOW_MILK_IMG },
-      { id: 126, character: 'narrator', name: 'Narrator', text: 'Между самым громким и самым тихим существом в Beast-Yeast.', image: SILENT_SALT_SERIOUS_IMG },
-      { id: 127, character: 'narrator', name: 'Narrator', text: '✧･ﾟ: *✧･ﾟ:* КОНЦОВКА: "Странная Дружба" *:･ﾟ✧*:･ﾟ✧', image: SHADOW_MILK_IMG },
+      { id: 88, character: 'narrator', name: 'Narrator', text: '*12 часов спустя*', image: SHADOW_MILK_IMG },
+      { id: 89, character: 'silent', name: 'Silent Salt Cookie', text: '...', image: SILENT_SALT_TIRED_IMG },
+      { id: 90, character: 'shadowmilk', name: 'Shadow Milk', text: '...и вот так я доказал что пи - это иррациональное число!', image: SHADOW_MILK_IMG },
+      { id: 91, character: 'narrator', name: 'Narrator', text: 'Silent Salt теряет сознание от переизбытка информации.', image: SILENT_SALT_TIRED_IMG },
+      { id: 92, character: 'narrator', name: 'Narrator', text: '✧･ﾟ: *✧･ﾟ:* КОНЦОВКА #3: "Информационная Перегрузка" *:･ﾟ✧*:･ﾟ✧', image: SHADOW_MILK_IMG },
     ],
     isEnding: true,
   },
   {
     id: 12,
-    background: 'from-orange-900 via-red-900 to-black',
+    background: 'from-purple-900 via-indigo-900 to-black',
     dialogs: [
-      { id: 128, character: 'silent', name: 'Silent Salt Cookie', text: '... (другие звери... они тоже могут быть здесь)', image: SILENT_SALT_SERIOUS_IMG },
-      { id: 129, character: 'shadowmilk', name: 'Shadow Milk', text: 'ОХО! Ты хочешь найти ОСТАЛЬНЫХ?! Это ПРИКЛЮЧЕНИЕ!', image: SHADOW_MILK_IMG },
-      { id: 130, character: 'shadowmilk', name: 'Shadow Milk', text: 'Я знаю где они! Eternal Sugar, Burning Spice, Mystic Flour!', image: SHADOW_MILK_IMG },
-      { id: 131, character: 'silent', name: 'Silent Salt Cookie', text: '... (давно не видел их...)', image: SILENT_SALT_SERIOUS_IMG },
-      { id: 132, character: 'narrator', name: 'Narrator', text: 'Они начинают долгое путешествие по Beast-Yeast...', image: SILENT_SALT_SERIOUS_IMG },
-      { id: 133, character: 'shadowmilk', name: 'Shadow Milk', text: 'Первая - Eternal Sugar! Она спит в облачной цитадели!', image: SHADOW_MILK_IMG },
-      { id: 134, character: 'silent', name: 'Silent Salt Cookie', text: '... (она всегда любила поспать...)', image: SILENT_SALT_SERIOUS_IMG },
+      { id: 93, character: 'silent', name: 'Silent Salt Cookie', text: '... *медленно отступает*', image: SILENT_SALT_SERIOUS_IMG },
+      { id: 94, character: 'shadowmilk', name: 'Shadow Milk', text: 'А потом я понял что...', image: SHADOW_MILK_IMG },
+      { id: 95, character: 'narrator', name: 'Narrator', text: '*Silent Salt успешно сбегает*', image: SILENT_SALT_SERIOUS_IMG },
+      { id: 96, character: 'shadowmilk', name: 'Shadow Milk', text: '...эй? ЭЙ?! ТЫ КУДА?!', image: SHADOW_MILK_SHOCKED_IMG },
+      { id: 97, character: 'narrator', name: 'Narrator', text: 'Поздно. Silent Salt уже далеко.', image: SILENT_SALT_SERIOUS_IMG },
     ],
     choices: [
-      { text: '... (идти к Eternal Sugar)', nextScene: 14 },
-      { text: '... (идти к Burning Spice)', nextScene: 15 },
-      { text: '... (передумать и вернуться)', nextScene: 11 },
+      { text: '... (бежать в лес)', nextScene: 6 },
+      { text: '... (бежать к городу)', nextScene: 14 },
     ],
   },
   {
     id: 13,
-    background: 'from-sky-800 via-blue-900 to-black',
+    background: 'from-blue-800 via-purple-800 to-black',
     dialogs: [
-      { id: 135, character: 'silent', name: 'Silent Salt Cookie', text: '... (я должен покинуть это место навсегда)', image: SILENT_SALT_SERIOUS_IMG },
-      { id: 136, character: 'shadowmilk', name: 'Shadow Milk', text: 'Ты... уходишь? Навсегда?', image: SHADOW_MILK_SHOCKED_IMG },
-      { id: 137, character: 'silent', name: 'Silent Salt Cookie', text: '... *кивает*', image: SILENT_SALT_SERIOUS_IMG },
-      { id: 138, character: 'shadowmilk', name: 'Shadow Milk', text: '...Я понимаю. Иногда нужно идти вперёд, а не застревать в прошлом.', image: SHADOW_MILK_IMG },
-      { id: 139, character: 'shadowmilk', name: 'Shadow Milk', text: 'Прощай, молчун. Было весело... даже если ты меня бил!', image: SHADOW_MILK_IMG },
-      { id: 140, character: 'silent', name: 'Silent Salt Cookie', text: '... *последний кивок*', image: SILENT_SALT_SERIOUS_IMG },
-      { id: 141, character: 'narrator', name: 'Narrator', text: 'Silent Salt выходит из катакомб в неизвестный мир...', image: SILENT_SALT_SERIOUS_IMG },
-      { id: 142, character: 'narrator', name: 'Narrator', text: 'Его путь только начинается. Будущее туманно, но он готов к нему.', image: SILENT_SALT_SERIOUS_IMG },
-      { id: 143, character: 'narrator', name: 'Narrator', text: '✧･ﾟ: *✧･ﾟ:* КОНЦОВКА: "Новый Рассвет" *:･ﾟ✧*:･ﾟ✧', image: SILENT_SALT_SERIOUS_IMG },
+      { id: 98, character: 'silent', name: 'Silent Salt Cookie', text: '... *кивает*', image: SILENT_SALT_SERIOUS_IMG },
+      { id: 99, character: 'shadowmilk', name: 'Shadow Milk', text: 'Правда?! Ты дашь мне шанс?!', image: SHADOW_MILK_IMG },
+      { id: 100, character: 'shadowmilk', name: 'Shadow Milk', text: 'Знаешь... я многому научился за эти годы.', image: SHADOW_MILK_IMG },
+      { id: 101, character: 'shadowmilk', name: 'Shadow Milk', text: 'Научился... слушать тишину.', image: SHADOW_MILK_IMG },
+      { id: 102, character: 'silent', name: 'Silent Salt Cookie', text: '... (он... изменился?)', image: SILENT_SALT_SERIOUS_IMG },
+      { id: 103, character: 'shadowmilk', name: 'Shadow Milk', text: 'Пойдём. Покажу тебе кое-что интересное.', image: SHADOW_MILK_IMG },
     ],
-    isEnding: true,
+    choices: [
+      { text: '... (пойти с ним)', nextScene: 23 },
+      { text: '... (отказаться)', nextScene: 5 },
+    ],
   },
   {
     id: 14,
-    background: 'from-pink-300 via-purple-400 to-blue-300',
+    background: 'from-amber-900 via-yellow-900 to-black',
+    backgroundImage: THRONE_HALL_BG,
     dialogs: [
-      { id: 144, character: 'narrator', name: 'Narrator', text: 'Они приходят в облачную цитадель Eternal Sugar...', image: SILENT_SALT_SERIOUS_IMG },
-      { id: 145, character: 'shadowmilk', name: 'Shadow Milk', text: 'ВОТ МЫ И ЗДЕСЬ! Облака, сладость, и... храп?', image: SHADOW_MILK_IMG },
-      { id: 146, character: 'silent', name: 'Silent Salt Cookie', text: '... (она всё ещё спит)', image: SILENT_SALT_SERIOUS_IMG },
-      { id: 147, character: 'shadowmilk', name: 'Shadow Milk', text: 'Конечно спит! Eternal Sugar ВСЕГДА спит!', image: SHADOW_MILK_IMG },
-      { id: 148, character: 'shadowmilk', name: 'Shadow Milk', text: 'Помню, однажды она проспала целую войну! ХАХАХА!', image: SHADOW_MILK_IMG },
-      { id: 149, character: 'silent', name: 'Silent Salt Cookie', text: '... (разбудить её?)', image: SILENT_SALT_SERIOUS_IMG },
+      { id: 104, character: 'narrator', name: 'Narrator', text: 'Древний город. Когда-то величественный, теперь - руины.', image: SILENT_SALT_SERIOUS_IMG },
+      { id: 105, character: 'silent', name: 'Silent Salt Cookie', text: '... (я помню это место...)', image: SILENT_SALT_SERIOUS_IMG },
+      { id: 106, character: 'narrator', name: 'Narrator', text: 'Среди руин Silent Salt находит старый зал.', image: SILENT_SALT_SERIOUS_IMG },
+      { id: 107, character: 'silent', name: 'Silent Salt Cookie', text: '... (здесь... я когда-то стоял на страже...)', image: SILENT_SALT_SERIOUS_IMG },
+      { id: 108, character: 'narrator', name: 'Narrator', text: 'Вдруг, из тени появляется фигура...', image: SILENT_SALT_SERIOUS_IMG },
+      { id: 109, character: 'mystic', name: '???', text: 'Наконец-то... ты вернулся, Хранитель.', image: SILENT_SALT_SERIOUS_IMG },
+      { id: 110, character: 'silent', name: 'Silent Salt Cookie', text: '... (кто это?)', image: SILENT_SALT_SERIOUS_IMG },
+      { id: 111, character: 'mystic', name: 'Mystic Flour Cookie', text: 'Я ждала тебя тысячу лет.', image: WHITE_LILY_IMG },
+      { id: 112, character: 'mystic', name: 'Mystic Flour Cookie', text: 'Есть много того, о чём мы должны поговорить.', image: WHITE_LILY_IMG },
     ],
     choices: [
-      { text: '... (попробовать разбудить её)', nextScene: 16 },
-      { text: '... (оставить спать и уйти к Burning Spice)', nextScene: 15 },
-      { text: '... (остаться здесь и поспать рядом)', nextScene: 17 },
+      { text: '... (выслушать её)', nextScene: 24 },
+      { text: '... (приготовиться к бою)', nextScene: 25 },
+      { text: '... (развернуться и уйти)', nextScene: 26 },
     ],
   },
   {
     id: 15,
-    background: 'from-orange-600 via-red-700 to-yellow-600',
+    background: 'from-green-800 via-emerald-900 to-black',
+    backgroundImage: FOREST_BG,
     dialogs: [
-      { id: 150, character: 'narrator', name: 'Narrator', text: 'Они направляются к вулканическому логову Burning Spice...', image: SILENT_SALT_SERIOUS_IMG },
-      { id: 151, character: 'shadowmilk', name: 'Shadow Milk', text: 'Осторожнее! Burning Spice немного... вспыльчив!', image: SHADOW_MILK_SHOCKED_IMG },
-      { id: 152, character: 'silent', name: 'Silent Salt Cookie', text: '... (я помню)', image: SILENT_SALT_SERIOUS_IMG },
-      { id: 153, character: 'narrator', name: 'Narrator', text: '*ВНЕЗАПНО ВЗРЫВ ЛАВЫ*', image: SILENT_SALT_SWORD_IMG },
-      { id: 154, character: 'narrator', name: 'Narrator', text: 'Из огня появляется массивная фигура...', image: SILENT_SALT_SERIOUS_IMG },
-      { id: 155, character: 'shadowmilk', name: 'Shadow Milk', text: 'Э-э-э... привет, Burning Spice! Давно не виделись!', image: SHADOW_MILK_SHOCKED_IMG },
-      { id: 156, character: 'silent', name: 'Silent Salt Cookie', text: '...', image: SILENT_SALT_SERIOUS_IMG },
-      { id: 157, character: 'narrator', name: 'Narrator', text: 'Burning Spice смотрит на них с яростью в глазах...', image: SILENT_SALT_SERIOUS_IMG },
-      { id: 158, character: 'shadowmilk', name: 'Shadow Milk', text: 'Ну что... БЕЖИМ?!', image: SHADOW_MILK_SHOCKED_IMG },
+      { id: 113, character: 'silent', name: 'Silent Salt Cookie', text: '... *садится рядом*', image: SILENT_SALT_SERIOUS_IMG },
+      { id: 114, character: 'whitelily', name: 'White Lily Cookie', text: '*улыбается* Спасибо...', image: WHITE_LILY_IMG },
+      { id: 115, character: 'narrator', name: 'Narrator', text: 'Дни превращаются в недели. Недели в месяцы.', image: WHITE_LILY_IMG },
+      { id: 116, character: 'narrator', name: 'Narrator', text: 'Они не говорят. Они просто... есть.', image: SILENT_SALT_SERIOUS_IMG },
+      { id: 117, character: 'whitelily', name: 'White Lily Cookie', text: 'Знаете... я никогда не думала, что молчание может быть таким... тёплым.', image: WHITE_LILY_IMG },
+      { id: 118, character: 'silent', name: 'Silent Salt Cookie', text: '...', image: SILENT_SALT_SERIOUS_IMG },
+      { id: 119, character: 'narrator', name: 'Narrator', text: 'И впервые за тысячу лет Silent Salt чувствует...', image: SILENT_SALT_SERIOUS_IMG },
+      { id: 120, character: 'narrator', name: 'Narrator', text: '...что его молчание - не проклятие. Это дар.', image: WHITE_LILY_IMG },
+      { id: 121, character: 'narrator', name: 'Narrator', text: '✧･ﾟ: *✧･ﾟ:* КОНЦОВКА #4: "Тихая Гармония" *:･ﾟ✧*:･ﾟ✧', image: WHITE_LILY_IMG },
     ],
-    choices: [
-      { text: '... (сражаться с Burning Spice)', nextScene: 18 },
-      { text: '... (бежать обратно)', nextScene: 11 },
-      { text: '... (попытаться поговорить)', nextScene: 19 },
-    ],
+    isEnding: true,
   },
   {
     id: 16,
-    background: 'from-pink-300 via-purple-400 to-blue-300',
+    background: 'from-slate-800 via-gray-900 to-black',
     dialogs: [
-      { id: 159, character: 'shadowmilk', name: 'Shadow Milk', text: 'Эй, Eternal Sugar! ПРОСЫПАЙСЯ!', image: SHADOW_MILK_IMG },
-      { id: 160, character: 'narrator', name: 'Narrator', text: '*храп продолжается*', image: SHADOW_MILK_SHOCKED_IMG },
-      { id: 161, character: 'silent', name: 'Silent Salt Cookie', text: '... *тихо толкает*', image: SILENT_SALT_SERIOUS_IMG },
-      { id: 162, character: 'narrator', name: 'Narrator', text: '*всё ещё храп*', image: SHADOW_MILK_SHOCKED_IMG },
-      { id: 163, character: 'shadowmilk', name: 'Shadow Milk', text: 'ОНА НЕ ПРОСЫПАЕТСЯ! Может крикнуть громче?', image: SHADOW_MILK_IMG },
-      { id: 164, character: 'silent', name: 'Silent Salt Cookie', text: '... (бесполезно)', image: SILENT_SALT_TIRED_IMG },
-      { id: 165, character: 'narrator', name: 'Narrator', text: 'Eternal Sugar продолжает спать вечным сном...', image: SILENT_SALT_SERIOUS_IMG },
-      { id: 166, character: 'narrator', name: 'Narrator', text: 'Некоторые вещи никогда не меняются.', image: SHADOW_MILK_IMG },
-      { id: 167, character: 'narrator', name: 'Narrator', text: '✧･ﾟ: *✧･ﾟ:* КОНЦОВКА: "Вечный Храп" *:･ﾟ✧*:･ﾟ✧', image: SHADOW_MILK_SHOCKED_IMG },
+      { id: 122, character: 'silent', name: 'Silent Salt Cookie', text: '... *качает головой*', image: SILENT_SALT_SERIOUS_IMG },
+      { id: 123, character: 'whitelily', name: 'White Lily Cookie', text: 'Я... понимаю. Каждому нужен свой путь.', image: WHITE_LILY_IMG },
+      { id: 124, character: 'narrator', name: 'Narrator', text: 'Silent Salt продолжает путь в одиночестве.', image: SILENT_SALT_SERIOUS_IMG },
+      { id: 125, character: 'silent', name: 'Silent Salt Cookie', text: '... (мой путь... всегда был одинок...)', image: SILENT_SALT_SERIOUS_IMG },
     ],
-    isEnding: true,
+    choices: [
+      { text: '... (идти дальше в горы)', nextScene: 27 },
+      { text: '... (вернуться к ней)', nextScene: 15 },
+    ],
   },
   {
     id: 17,
-    background: 'from-pink-200 via-purple-300 to-blue-200',
+    background: 'from-green-800 via-emerald-900 to-black',
+    backgroundImage: FOREST_BG,
     dialogs: [
-      { id: 168, character: 'silent', name: 'Silent Salt Cookie', text: '... (это место такое спокойное...)', image: SILENT_SALT_SERIOUS_IMG },
-      { id: 169, character: 'shadowmilk', name: 'Shadow Milk', text: 'Ты хочешь... ПОСПАТЬ? Серьёзно?', image: SHADOW_MILK_SHOCKED_IMG },
-      { id: 170, character: 'silent', name: 'Silent Salt Cookie', text: '... *ложится рядом с Eternal Sugar*', image: SILENT_SALT_SERIOUS_IMG },
-      { id: 171, character: 'shadowmilk', name: 'Shadow Milk', text: 'Ладно... может и я немного посплю...', image: SHADOW_MILK_IMG },
-      { id: 172, character: 'narrator', name: 'Narrator', text: 'Все трое засыпают в облачной цитадели...', image: SILENT_SALT_SERIOUS_IMG },
-      { id: 173, character: 'narrator', name: 'Narrator', text: 'Проблемы могут подождать. Иногда лучший ответ - просто отдохнуть.', image: SHADOW_MILK_IMG },
-      { id: 174, character: 'narrator', name: 'Narrator', text: '✧･ﾟ: *✧･ﾟ:* КОНЦОВКА: "Облачный Отдых" *:･ﾟ✧*:･ﾟ✧', image: SILENT_SALT_SERIOUS_IMG },
+      { id: 126, character: 'silent', name: 'Silent Salt Cookie', text: '... *протягивает руку*', image: SILENT_SALT_SERIOUS_IMG },
+      { id: 127, character: 'whitelily', name: 'White Lily Cookie', text: 'Вы... приглашаете меня?', image: WHITE_LILY_IMG },
+      { id: 128, character: 'silent', name: 'Silent Salt Cookie', text: '... *кивает*', image: SILENT_SALT_SERIOUS_IMG },
+      { id: 129, character: 'whitelily', name: 'White Lily Cookie', text: 'Я... я бы с радостью! Куда мы направляемся?', image: WHITE_LILY_IMG },
+      { id: 130, character: 'narrator', name: 'Narrator', text: 'Два одиноких странника начинают новое путешествие вместе.', image: WHITE_LILY_IMG },
     ],
-    isEnding: true,
+    choices: [
+      { text: '... (к древнему городу)', nextScene: 28 },
+      { text: '... (в неизведанные земли)', nextScene: 29 },
+    ],
   },
   {
     id: 18,
-    background: 'from-red-700 via-orange-700 to-yellow-600',
+    background: 'from-red-900 via-black to-red-900',
     dialogs: [
-      { id: 175, character: 'silent', name: 'Silent Salt Cookie', text: '... *достаёт меч*', image: SILENT_SALT_SWORD_IMG },
-      { id: 176, character: 'shadowmilk', name: 'Shadow Milk', text: 'О НЕТ! ОН СОБИРАЕТСЯ ДРАТЬСЯ!', image: SHADOW_MILK_SHOCKED_IMG },
-      { id: 177, character: 'narrator', name: 'Narrator', text: '*ЭПИЧЕСКАЯ БИТВА НАЧИНАЕТСЯ*', image: SILENT_SALT_SWORD_IMG },
-      { id: 178, character: 'narrator', name: 'Narrator', text: 'Огонь против льда. Ярость против спокойствия.', image: SILENT_SALT_SWORD_IMG },
-      { id: 179, character: 'narrator', name: 'Narrator', text: 'Но Silent Salt слишком силён...', image: SILENT_SALT_SWORD_IMG },
-      { id: 180, character: 'narrator', name: 'Narrator', text: 'Одним ударом он побеждает Burning Spice.', image: SILENT_SALT_SERIOUS_IMG },
-      { id: 181, character: 'shadowmilk', name: 'Shadow Milk', text: 'ВАУУУУ! ТЫ ЕГО ПОБЕДИЛ! ТЫ ЛЕГЕНДА!', image: SHADOW_MILK_IMG },
-      { id: 182, character: 'narrator', name: 'Narrator', text: '✧･ﾟ: *✧･ﾟ:* КОНЦОВКА: "Воин Молчания" *:･ﾟ✧*:･ﾟ✧', image: SILENT_SALT_SWORD_IMG },
+      { id: 131, character: 'narrator', name: 'Narrator', text: '*ВОСПОМИНАНИЯ НАХЛЫНУЛИ*', image: SALT_OF_SOLIDARITY_IMG },
+      { id: 132, character: 'silent', name: 'Salt of Solidarity (прошлое)', text: '... (я защищал их всех...)', image: SALT_OF_SOLIDARITY_IMG },
+      { id: 133, character: 'narrator', name: 'Narrator', text: 'Битвы. Кровь. Предательство.', image: SILENT_SALT_ANGRY_IMG },
+      { id: 134, character: 'silent', name: 'Salt of Solidarity', text: '... (и меня запечатали... те, кого я защищал...)', image: SILENT_SALT_ANGRY_IMG },
+      { id: 135, character: 'narrator', name: 'Narrator', text: 'Боль слишком велика. Ярость поглощает разум.', image: SILENT_SALT_ANGRY_IMG },
+      { id: 136, character: 'silent', name: 'Silent Salt Cookie', text: '... (МЕСТЬ... МНЕ НУЖНА МЕСТЬ!)', image: SILENT_SALT_ANGRY_IMG },
+    ],
+    choices: [
+      { text: '... (отпустить гнев)', nextScene: 30 },
+      { text: '... (принять тьму внутри)', nextScene: 31 },
+    ],
+  },
+  {
+    id: 19,
+    background: 'from-blue-900 via-indigo-900 to-black',
+    dialogs: [
+      { id: 137, character: 'silent', name: 'Silent Salt Cookie', text: '... (нет... прошлое в прошлом)', image: SILENT_SALT_SERIOUS_IMG },
+      { id: 138, character: 'narrator', name: 'Narrator', text: 'Silent Salt останавливает поток воспоминаний.', image: SILENT_SALT_SERIOUS_IMG },
+      { id: 139, character: 'shadowmilk', name: 'Shadow Milk', text: 'Эй, ты в порядке?', image: SHADOW_MILK_IMG },
+      { id: 140, character: 'silent', name: 'Silent Salt Cookie', text: '... *кивает*', image: SILENT_SALT_SERIOUS_IMG },
+      { id: 141, character: 'shadowmilk', name: 'Shadow Milk', text: 'Ладно... если что, я тут.', image: SHADOW_MILK_IMG },
+    ],
+    choices: [
+      { text: '... (поговорить с Shadow Milk)', nextScene: 13 },
+      { text: '... (уйти)', nextScene: 5 },
+    ],
+  },
+  {
+    id: 20,
+    background: 'from-purple-900 via-violet-900 to-black',
+    dialogs: [
+      { id: 142, character: 'silent', name: 'Silent Salt Cookie', text: '... (Shadow Milk... расскажи мне...)', image: SILENT_SALT_SERIOUS_IMG },
+      { id: 143, character: 'shadowmilk', name: 'Shadow Milk', text: 'О! Ты хочешь знать о прошлом?', image: SHADOW_MILK_IMG },
+      { id: 144, character: 'shadowmilk', name: 'Shadow Milk', text: 'Хм... это длинная история. Ты уверен?', image: SHADOW_MILK_IMG },
+      { id: 145, character: 'silent', name: 'Silent Salt Cookie', text: '... *кивает*', image: SILENT_SALT_SERIOUS_IMG },
+      { id: 146, character: 'shadowmilk', name: 'Shadow Milk', text: 'Ладно... слушай...', image: SHADOW_MILK_IMG },
+      { id: 147, character: 'shadowmilk', name: 'Shadow Milk', text: 'Тысячу лет назад... мы были героями.', image: SHADOW_MILK_IMG },
+      { id: 148, character: 'shadowmilk', name: 'Shadow Milk', text: 'Но сила развратила нас. Мы стали тем, от чего защищали других.', image: SHADOW_MILK_IMG },
+      { id: 149, character: 'shadowmilk', name: 'Shadow Milk', text: 'И нас запечатали. Справедливо, если подумать.', image: SHADOW_MILK_IMG },
+      { id: 150, character: 'silent', name: 'Silent Salt Cookie', text: '... (значит... мы сами виноваты...)', image: SILENT_SALT_SERIOUS_IMG },
+    ],
+    choices: [
+      { text: '... (принять прошлое)', nextScene: 32 },
+      { text: '... (отрицать его слова)', nextScene: 33 },
+    ],
+  },
+  {
+    id: 21,
+    background: 'from-orange-800 via-red-800 to-black',
+    dialogs: [
+      { id: 151, character: 'silent', name: 'Silent Salt Cookie', text: 'Я... устал молчать.', image: SILENT_SALT_SERIOUS_IMG },
+      { id: 152, character: 'shadowmilk', name: 'Shadow Milk', text: '...ВАУ. Твой голос... он такой...', image: SHADOW_MILK_SHOCKED_IMG },
+      { id: 153, character: 'silent', name: 'Silent Salt Cookie', text: 'Тихий? Слабый?', image: SILENT_SALT_SERIOUS_IMG },
+      { id: 154, character: 'shadowmilk', name: 'Shadow Milk', text: 'Нет. Сильный. Очень сильный.', image: SHADOW_MILK_IMG },
+      { id: 155, character: 'shadowmilk', name: 'Shadow Milk', text: 'Потому что ты говоришь только когда это действительно важно.', image: SHADOW_MILK_IMG },
+      { id: 156, character: 'silent', name: 'Silent Salt Cookie', text: '... Спасибо.', image: SILENT_SALT_SERIOUS_IMG },
+      { id: 157, character: 'narrator', name: 'Narrator', text: '✧･ﾟ: *✧･ﾟ:* КОНЦОВКА #5: "Найденный Голос" *:･ﾟ✧*:･ﾟ✧', image: SILENT_SALT_SERIOUS_IMG },
     ],
     isEnding: true,
   },
   {
-    id: 19,
-    background: 'from-orange-700 via-red-800 to-black',
+    id: 22,
+    background: 'from-gray-900 via-slate-900 to-black',
     dialogs: [
-      { id: 183, character: 'silent', name: 'Silent Salt Cookie', text: '... *поднимает руку в знак мира*', image: SILENT_SALT_SERIOUS_IMG },
-      { id: 184, character: 'shadowmilk', name: 'Shadow Milk', text: 'ОН ХОЧЕТ ПОГОВОРИТЬ! Burning Spice, пожалуйста, не убивай нас!', image: SHADOW_MILK_SHOCKED_IMG },
-      { id: 185, character: 'narrator', name: 'Narrator', text: 'Burning Spice останавливается... смотрит на Silent Salt...', image: SILENT_SALT_SERIOUS_IMG },
-      { id: 186, character: 'narrator', name: 'Narrator', text: 'Что-то в его молчаливом взгляде успокаивает ярость...', image: SILENT_SALT_SERIOUS_IMG },
-      { id: 187, character: 'shadowmilk', name: 'Shadow Milk', text: 'Вау... он... успокоился? Как ты это сделал?!', image: SHADOW_MILK_SHOCKED_IMG },
-      { id: 188, character: 'silent', name: 'Silent Salt Cookie', text: '... (иногда молчание громче криков)', image: SILENT_SALT_SERIOUS_IMG },
-      { id: 189, character: 'narrator', name: 'Narrator', text: 'Silent Salt учит Burning Spice находить покой в тишине.', image: SILENT_SALT_SERIOUS_IMG },
-      { id: 190, character: 'narrator', name: 'Narrator', text: '✧･ﾟ: *✧･ﾟ:* КОНЦОВКА: "Сила Тишины" *:･ﾟ✧*:･ﾟ✧', image: SILENT_SALT_SERIOUS_IMG },
+      { id: 158, character: 'silent', name: 'Silent Salt Cookie', text: '...', image: SILENT_SALT_SERIOUS_IMG },
+      { id: 159, character: 'shadowmilk', name: 'Shadow Milk', text: 'Снова молчание, да?', image: SHADOW_MILK_IMG },
+      { id: 160, character: 'shadowmilk', name: 'Shadow Milk', text: 'Ничего. Я... наверное понимаю.', image: SHADOW_MILK_IMG },
+      { id: 161, character: 'narrator', name: 'Narrator', text: 'Момент был потерян. Молчание вернулось.', image: SILENT_SALT_SERIOUS_IMG },
+    ],
+    choices: [
+      { text: '... (уйти)', nextScene: 5 },
+      { text: '... (остаться)', nextScene: 13 },
+    ],
+  },
+  {
+    id: 23,
+    background: 'from-purple-800 via-blue-800 to-black',
+    dialogs: [
+      { id: 162, character: 'shadowmilk', name: 'Shadow Milk', text: 'Смотри! Это... моё творение!', image: SHADOW_MILK_IMG },
+      { id: 163, character: 'narrator', name: 'Narrator', text: 'Shadow Milk показывает зал, полный скульптур из тени.', image: SHADOW_MILK_IMG },
+      { id: 164, character: 'shadowmilk', name: 'Shadow Milk', text: 'Я создавал их годами. Каждая - история.', image: SHADOW_MILK_IMG },
+      { id: 165, character: 'silent', name: 'Silent Salt Cookie', text: '... (это... красиво)', image: SILENT_SALT_SERIOUS_IMG },
+      { id: 166, character: 'shadowmilk', name: 'Shadow Milk', text: 'Правда? Ты думаешь?!', image: SHADOW_MILK_IMG },
+      { id: 167, character: 'shadowmilk', name: 'Shadow Milk', text: 'Знаешь... тишина помогла мне найти это искусство.', image: SHADOW_MILK_IMG },
+      { id: 168, character: 'shadowmilk', name: 'Shadow Milk', text: 'Может... ты был прав всё это время.', image: SHADOW_MILK_IMG },
+      { id: 169, character: 'narrator', name: 'Narrator', text: '✧･ﾟ: *✧･ﾟ:* КОНЦОВКА #6: "Искусство Тишины" *:･ﾟ✧*:･ﾟ✧', image: SHADOW_MILK_IMG },
+    ],
+    isEnding: true,
+  },
+  {
+    id: 24,
+    background: 'from-amber-900 via-yellow-900 to-black',
+    backgroundImage: THRONE_HALL_BG,
+    dialogs: [
+      { id: 170, character: 'silent', name: 'Silent Salt Cookie', text: '... *слушает*', image: SILENT_SALT_SERIOUS_IMG },
+      { id: 171, character: 'mystic', name: 'Mystic Flour Cookie', text: 'Ты был великим воином. Самым верным.', image: WHITE_LILY_IMG },
+      { id: 172, character: 'mystic', name: 'Mystic Flour Cookie', text: 'Но сила изменила нас всех. Даже тебя.', image: WHITE_LILY_IMG },
+      { id: 173, character: 'mystic', name: 'Mystic Flour Cookie', text: 'Мы были запечатаны не из злобы. Из необходимости.', image: WHITE_LILY_IMG },
+      { id: 174, character: 'mystic', name: 'Mystic Flour Cookie', text: 'Теперь ты свободен. Вопрос - что ты будешь делать?', image: WHITE_LILY_IMG },
+      { id: 175, character: 'mystic', name: 'Mystic Flour Cookie', text: 'Повторишь ошибки прошлого? Или найдёшь новый путь?', image: WHITE_LILY_IMG },
+    ],
+    choices: [
+      { text: '... (я найду новый путь)', nextScene: 34 },
+      { text: '... (прошлое не отпускает меня)', nextScene: 35 },
+    ],
+  },
+  {
+    id: 25,
+    background: 'from-red-900 via-orange-900 to-black',
+    backgroundImage: THRONE_HALL_BG,
+    dialogs: [
+      { id: 176, character: 'silent', name: 'Silent Salt Cookie', text: '... *достаёт меч*', image: SILENT_SALT_SWORD_IMG },
+      { id: 177, character: 'mystic', name: 'Mystic Flour Cookie', text: '*вздох* Я надеялась, что ты изменился.', image: WHITE_LILY_IMG },
+      { id: 178, character: 'narrator', name: 'Narrator', text: '*ЭПИЧЕСКАЯ БИТВА*', image: SILENT_SALT_SWORD_IMG },
+      { id: 179, character: 'mystic', name: 'Mystic Flour Cookie', text: 'Ты всё ещё тот же... всё ещё выбираешь насилие...', image: WHITE_LILY_IMG },
+      { id: 180, character: 'narrator', name: 'Narrator', text: 'Битва длится вечность. В конце - только руины.', image: SILENT_SALT_ANGRY_IMG },
+      { id: 181, character: 'narrator', name: 'Narrator', text: '✧･ﾟ: *✧･ﾟ:* КОНЦОВКА #7: "Вечная Война" *:･ﾟ✧*:･ﾟ✧', image: SILENT_SALT_SWORD_IMG },
+    ],
+    isEnding: true,
+  },
+  {
+    id: 26,
+    background: 'from-slate-800 via-gray-900 to-black',
+    dialogs: [
+      { id: 182, character: 'silent', name: 'Silent Salt Cookie', text: '... *уходит*', image: SILENT_SALT_SERIOUS_IMG },
+      { id: 183, character: 'mystic', name: 'Mystic Flour Cookie', text: 'Бегство... Может, это тоже ответ.', image: WHITE_LILY_IMG },
+      { id: 184, character: 'narrator', name: 'Narrator', text: 'Silent Salt покидает город. Снова один.', image: SILENT_SALT_SERIOUS_IMG },
+    ],
+    choices: [
+      { text: '... (в горы)', nextScene: 27 },
+      { text: '... (в лес)', nextScene: 6 },
+    ],
+  },
+  {
+    id: 27,
+    background: 'from-slate-600 via-gray-700 to-black',
+    dialogs: [
+      { id: 185, character: 'narrator', name: 'Narrator', text: 'Высоко в горах. Вдали от всех.', image: SILENT_SALT_SERIOUS_IMG },
+      { id: 186, character: 'silent', name: 'Silent Salt Cookie', text: '... (здесь... только я и ветер)', image: SILENT_SALT_SERIOUS_IMG },
+      { id: 187, character: 'narrator', name: 'Narrator', text: 'Silent Salt находит покой в одиночестве.', image: SILENT_SALT_SERIOUS_IMG },
+      { id: 188, character: 'narrator', name: 'Narrator', text: 'Годы проходят. Он становится легендой - призраком гор.', image: SILENT_SALT_SERIOUS_IMG },
+      { id: 189, character: 'narrator', name: 'Narrator', text: '✧･ﾟ: *✧･ﾟ:* КОНЦОВКА #8: "Горный Отшельник" *:･ﾟ✧*:･ﾟ✧', image: SILENT_SALT_SERIOUS_IMG },
+    ],
+    isEnding: true,
+  },
+  {
+    id: 28,
+    background: 'from-amber-900 via-yellow-900 to-black',
+    backgroundImage: THRONE_HALL_BG,
+    dialogs: [
+      { id: 190, character: 'narrator', name: 'Narrator', text: 'Silent Salt и White Lily входят в древний город.', image: WHITE_LILY_IMG },
+      { id: 191, character: 'whitelily', name: 'White Lily Cookie', text: 'Здесь... чувствуется что-то древнее.', image: WHITE_LILY_IMG },
+      { id: 192, character: 'silent', name: 'Silent Salt Cookie', text: '... (я знал это место...)', image: SILENT_SALT_SERIOUS_IMG },
+      { id: 193, character: 'narrator', name: 'Narrator', text: 'Вместе они исследуют руины, раскрывая секреты прошлого.', image: WHITE_LILY_IMG },
+      { id: 194, character: 'whitelily', name: 'White Lily Cookie', text: 'Какая бы ни была твоя история... я рядом.', image: WHITE_LILY_IMG },
+      { id: 195, character: 'narrator', name: 'Narrator', text: '✧･ﾟ: *✧･ﾟ:* КОНЦОВКА #9: "Новая Глава Вместе" *:･ﾟ✧*:･ﾟ✧', image: WHITE_LILY_IMG },
+    ],
+    isEnding: true,
+  },
+  {
+    id: 29,
+    background: 'from-cyan-900 via-blue-900 to-black',
+    dialogs: [
+      { id: 196, character: 'narrator', name: 'Narrator', text: 'За горизонт. В неизведанные земли.', image: SILENT_SALT_SERIOUS_IMG },
+      { id: 197, character: 'whitelily', name: 'White Lily Cookie', text: 'Куда мы идём?', image: WHITE_LILY_IMG },
+      { id: 198, character: 'silent', name: 'Silent Salt Cookie', text: '... (не знаю... но мы вместе)', image: SILENT_SALT_SERIOUS_IMG },
+      { id: 199, character: 'narrator', name: 'Narrator', text: 'Два странника. Бесконечный путь. Новые приключения.', image: WHITE_LILY_IMG },
+      { id: 200, character: 'narrator', name: 'Narrator', text: '✧･ﾟ: *✧･ﾟ:* КОНЦОВКА #10: "Бесконечный Путь" *:･ﾟ✧*:･ﾟ✧', image: SILENT_SALT_SERIOUS_IMG },
+    ],
+    isEnding: true,
+  },
+  {
+    id: 30,
+    background: 'from-blue-800 via-indigo-800 to-black',
+    dialogs: [
+      { id: 201, character: 'silent', name: 'Silent Salt Cookie', text: '... (нет... месть - не путь)', image: SILENT_SALT_SERIOUS_IMG },
+      { id: 202, character: 'narrator', name: 'Narrator', text: 'Silent Salt отпускает гнев. Боль уходит.', image: SILENT_SALT_SERIOUS_IMG },
+      { id: 203, character: 'silent', name: 'Silent Salt Cookie', text: '... (прошлое... прощено)', image: SILENT_SALT_SERIOUS_IMG },
+      { id: 204, character: 'shadowmilk', name: 'Shadow Milk', text: 'Эй! Ты вернулся! Всё в порядке?', image: SHADOW_MILK_IMG },
+      { id: 205, character: 'silent', name: 'Silent Salt Cookie', text: '... *кивает с улыбкой*', image: SILENT_SALT_SERIOUS_IMG },
+      { id: 206, character: 'narrator', name: 'Narrator', text: '✧･ﾟ: *✧･ﾟ:* КОНЦОВКА #11: "Прощение" *:･ﾟ✧*:･ﾟ✧', image: SILENT_SALT_SERIOUS_IMG },
+    ],
+    isEnding: true,
+  },
+  {
+    id: 31,
+    background: 'from-red-950 via-black to-red-950',
+    dialogs: [
+      { id: 207, character: 'silent', name: 'Silent Salt Cookie', text: 'МЕСТЬ... ОНИ ЗАПЛАТЯТ...', image: SILENT_SALT_ANGRY_IMG },
+      { id: 208, character: 'narrator', name: 'Narrator', text: 'Тьма поглощает Silent Salt полностью.', image: SILENT_SALT_ANGRY_IMG },
+      { id: 209, character: 'shadowmilk', name: 'Shadow Milk', text: 'ОЙ... это плохо. ЭТО ОЧЕНЬ ПЛОХО!', image: SHADOW_MILK_SHOCKED_IMG },
+      { id: 210, character: 'narrator', name: 'Narrator', text: 'Silent Salt становится тем, от чего когда-то защищал других.', image: SILENT_SALT_ANGRY_IMG },
+      { id: 211, character: 'narrator', name: 'Narrator', text: '✧･ﾟ: *✧･ﾟ:* КОНЦОВКА #12: "Падение во Тьму" *:･ﾟ✧*:･ﾟ✧', image: SILENT_SALT_ANGRY_IMG },
+    ],
+    isEnding: true,
+  },
+  {
+    id: 32,
+    background: 'from-indigo-800 via-purple-800 to-black',
+    dialogs: [
+      { id: 212, character: 'silent', name: 'Silent Salt Cookie', text: '... (ты прав... мы были чудовищами)', image: SILENT_SALT_SERIOUS_IMG },
+      { id: 213, character: 'shadowmilk', name: 'Shadow Milk', text: 'Но знаешь что? Мы можем измениться.', image: SHADOW_MILK_IMG },
+      { id: 214, character: 'shadowmilk', name: 'Shadow Milk', text: 'Начать заново. Стать лучше.', image: SHADOW_MILK_IMG },
+      { id: 215, character: 'silent', name: 'Silent Salt Cookie', text: '... (может быть...)', image: SILENT_SALT_SERIOUS_IMG },
+      { id: 216, character: 'narrator', name: 'Narrator', text: 'Два древних зла решают искупить прошлое.', image: SHADOW_MILK_IMG },
+      { id: 217, character: 'narrator', name: 'Narrator', text: '✧･ﾟ: *✧･ﾟ:* КОНЦОВКА #13: "Путь Искупления" *:･ﾟ✧*:･ﾟ✧', image: SHADOW_MILK_IMG },
+    ],
+    isEnding: true,
+  },
+  {
+    id: 33,
+    background: 'from-orange-900 via-red-900 to-black',
+    dialogs: [
+      { id: 218, character: 'silent', name: 'Silent Salt Cookie', text: '... (нет... ты лжёшь!)', image: SILENT_SALT_ANGRY_IMG },
+      { id: 219, character: 'shadowmilk', name: 'Shadow Milk', text: 'Я? Лгу? Ну... иногда. Но не сейчас.', image: SHADOW_MILK_IMG },
+      { id: 220, character: 'silent', name: 'Silent Salt Cookie', text: '... *атакует*', image: SILENT_SALT_SWORD_IMG },
+      { id: 221, character: 'shadowmilk', name: 'Shadow Milk', text: 'АЙ! Хорошо, хорошо! Я ухожу!', image: SHADOW_MILK_SHOCKED_IMG },
+      { id: 222, character: 'narrator', name: 'Narrator', text: 'Silent Salt отказывается принять правду.', image: SILENT_SALT_ANGRY_IMG },
+      { id: 223, character: 'narrator', name: 'Narrator', text: '✧･ﾟ: *✧･ﾟ:* КОНЦОВКА #14: "Отрицание" *:･ﾟ✧*:･ﾟ✧', image: SILENT_SALT_ANGRY_IMG },
+    ],
+    isEnding: true,
+  },
+  {
+    id: 34,
+    background: 'from-yellow-800 via-amber-800 to-black',
+    backgroundImage: THRONE_HALL_BG,
+    dialogs: [
+      { id: 224, character: 'silent', name: 'Silent Salt Cookie', text: '... (я выбираю... новый путь)', image: SILENT_SALT_SERIOUS_IMG },
+      { id: 225, character: 'mystic', name: 'Mystic Flour Cookie', text: 'Мудрый выбор. Я горжусь тобой.', image: WHITE_LILY_IMG },
+      { id: 226, character: 'mystic', name: 'Mystic Flour Cookie', text: 'Иди. Найди своё предназначение.', image: WHITE_LILY_IMG },
+      { id: 227, character: 'narrator', name: 'Narrator', text: 'Silent Salt покидает руины с новой целью.', image: SILENT_SALT_SERIOUS_IMG },
+      { id: 228, character: 'narrator', name: 'Narrator', text: '✧･ﾟ: *✧･ﾟ:* КОНЦОВКА #15: "Новое Начало" *:･ﾟ✧*:･ﾟ✧', image: SILENT_SALT_SERIOUS_IMG },
+    ],
+    isEnding: true,
+  },
+  {
+    id: 35,
+    background: 'from-gray-900 via-slate-950 to-black',
+    backgroundImage: THRONE_HALL_BG,
+    dialogs: [
+      { id: 229, character: 'silent', name: 'Silent Salt Cookie', text: '... (прошлое... слишком тяжёлое)', image: SILENT_SALT_TIRED_IMG },
+      { id: 230, character: 'mystic', name: 'Mystic Flour Cookie', text: 'Я понимаю. Некоторые раны не заживают.', image: WHITE_LILY_IMG },
+      { id: 231, character: 'narrator', name: 'Narrator', text: 'Silent Salt остаётся в руинах. Навсегда.', image: SILENT_SALT_TIRED_IMG },
+      { id: 232, character: 'narrator', name: 'Narrator', text: 'Узник собственной истории.', image: SILENT_SALT_TIRED_IMG },
+      { id: 233, character: 'narrator', name: 'Narrator', text: '✧･ﾟ: *✧･ﾟ:* КОНЦОВКА #16: "Узник Прошлого" *:･ﾟ✧*:･ﾟ✧', image: SILENT_SALT_TIRED_IMG },
     ],
     isEnding: true,
   },
@@ -451,27 +641,15 @@ export default function Index() {
     };
   }, []);
 
-  const scene = STORY_SCENES.find((s) => s.id === currentScene) || STORY_SCENES[0];
+  const scene = STORY_SCENES.find(s => s.id === currentScene) || STORY_SCENES[0];
   const currentDialog = scene.dialogs[currentDialogIndex];
-  const isLastDialog = currentDialogIndex === scene.dialogs.length - 1;
-  const hasSeenThisDialog = seenDialogs.has(currentDialog.id);
-  const isSceneVisited = visitedScenes.includes(currentScene);
+  const isLastDialog = currentDialogIndex >= scene.dialogs.length - 1;
 
   const handleNext = () => {
-    setSeenDialogs(prev => new Set(prev).add(currentDialog.id));
     if (!isLastDialog) {
-      setCurrentDialogIndex(currentDialogIndex + 1);
-    } else if (scene.choices && !scene.isEnding) {
-      setShowChoices(true);
-    }
-  };
-
-  const handleSkipToChoice = () => {
-    scene.dialogs.forEach(dialog => {
-      setSeenDialogs(prev => new Set(prev).add(dialog.id));
-    });
-    setCurrentDialogIndex(scene.dialogs.length - 1);
-    if (scene.choices && !scene.isEnding) {
+      setCurrentDialogIndex(prev => prev + 1);
+      setSeenDialogs(prev => new Set(prev).add(currentDialog.id));
+    } else if (scene.choices) {
       setShowChoices(true);
     }
   };
@@ -480,7 +658,8 @@ export default function Index() {
     setCurrentScene(nextScene);
     setCurrentDialogIndex(0);
     setShowChoices(false);
-    setVisitedScenes([...visitedScenes, nextScene]);
+    setVisitedScenes(prev => [...prev, nextScene]);
+    setSeenDialogs(new Set());
   };
 
   const handleRestart = () => {
@@ -488,183 +667,110 @@ export default function Index() {
     setCurrentDialogIndex(0);
     setShowChoices(false);
     setVisitedScenes([0]);
+    setSeenDialogs(new Set());
   };
 
-  const characterColors: Record<Character, string> = {
-    narrator: 'text-gray-200 bg-gray-800',
-    silent: 'text-slate-300 bg-slate-800',
-    shadowmilk: 'text-indigo-400 bg-indigo-900',
+  const characterStyles = {
+    silent: 'text-gray-300 bg-gray-800',
+    narrator: 'text-amber-200 bg-transparent',
+    shadowmilk: 'text-purple-300 bg-purple-900',
     whitelily: 'text-white bg-green-700',
+    purevanilla: 'text-yellow-100 bg-yellow-800',
+    goldenecheese: 'text-amber-200 bg-amber-900',
+    darkenchoco: 'text-red-200 bg-red-950',
+    mystic: 'text-indigo-200 bg-indigo-900',
   };
 
   return (
     <div className="fixed inset-0 transition-all duration-700 overflow-hidden w-screen h-screen">
       <div 
         className="absolute inset-0 bg-cover bg-center opacity-30"
-        style={{ backgroundImage: `url(${THRONE_HALL_BG})` }}
+        style={{
+          backgroundImage: scene.backgroundImage ? `url(${scene.backgroundImage})` : 'none',
+        }}
       />
       <div className={`absolute inset-0 bg-gradient-to-br ${scene.background}`} />
       
-      {/* Animated particles */}
-      <div className="absolute inset-0 opacity-30">
-        <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-purple-400 rounded-full animate-ping" style={{ animationDelay: '0s', animationDuration: '3s' }} />
-        <div className="absolute top-1/3 right-1/3 w-1 h-1 bg-pink-400 rounded-full animate-ping" style={{ animationDelay: '1s', animationDuration: '4s' }} />
-        <div className="absolute bottom-1/4 left-1/3 w-1.5 h-1.5 bg-blue-400 rounded-full animate-ping" style={{ animationDelay: '2s', animationDuration: '3.5s' }} />
-      </div>
+      <div className="relative h-full flex flex-col items-center justify-between p-8">
+        <div className="flex items-center gap-2">
+          <Badge variant="outline" className="bg-black/50 text-white border-white/30">
+            Сцена {scene.id + 1}/{STORY_SCENES.length}
+          </Badge>
+          <Badge variant="outline" className="bg-black/50 text-white border-white/30">
+            {visitedScenes.length} посещено
+          </Badge>
+        </div>
 
-      <div className="h-full w-full flex items-center justify-center p-4 relative z-10">
-        <div className="h-full w-full max-w-[95vw] flex flex-col">
-          <div className="text-center py-3">
-            <div className="inline-block relative">
-              <h1 className="text-2xl md:text-3xl mb-2 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 font-black tracking-wider animate-gradient">
-                ЧТО ЗА ПИЗДЕЦ ТУТ ПРОИСХОДИТ
-              </h1>
-              <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg blur opacity-20 animate-pulse" />
-            </div>
-            <Badge className="text-xs px-3 py-1 bg-gradient-to-r from-red-600 to-red-700 text-white border-2 border-red-400 shadow-lg shadow-red-500/50 font-bold">
-              Cookie Run: Chaos Edition
-            </Badge>
-          </div>
-
-          <div className="mb-3 flex justify-center gap-2 flex-wrap">
-            {STORY_SCENES.map((s) => (
-              <div
-                key={s.id}
-                className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                  visitedScenes.includes(s.id) 
-                    ? 'bg-gradient-to-r from-purple-400 to-pink-400 shadow-lg shadow-purple-500/50 scale-125' 
-                    : 'bg-gray-600/50 backdrop-blur-sm'
-                }`}
+        <div className="w-full max-w-6xl flex items-center gap-8">
+          {currentDialog.image && (
+            <div className="flex-shrink-0">
+              <img 
+                src={currentDialog.image} 
+                alt={currentDialog.name}
+                className="w-96 h-96 object-contain drop-shadow-2xl"
               />
-            ))}
-          </div>
+            </div>
+          )}
 
-          <div className="flex-1 flex items-stretch">
-            <Card className="border-0 overflow-hidden animate-fade-in shadow-2xl bg-transparent w-full flex">
-              <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 via-transparent to-pink-600/20 rounded-xl" />
-              <div className="relative border-2 border-purple-500/30 rounded-xl overflow-hidden w-full flex flex-col md:flex-row">
-                <div 
-                  className="relative flex-1 flex items-center justify-center bg-cover bg-center min-h-[250px] md:min-h-0"
-                  style={{ backgroundImage: `url(${scene.backgroundImage || THRONE_HALL_BG})` }}
-                >
-                  <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70" />
-                  {currentDialog.image && (
-                    <div className="relative z-10 h-full flex items-center justify-center p-4">
-                      <div className="absolute inset-0 bg-gradient-to-t from-purple-600/50 to-transparent blur-3xl" />
-                      <img
-                        src={currentDialog.image}
-                        alt="Character Sprite"
-                        className={`max-h-[90%] max-w-full h-auto object-contain drop-shadow-[0_0_80px_rgba(139,92,246,0.9)] relative z-10 filter transition-all duration-700 ${
-                          currentDialog.id <= 4 ? 'brightness-0' : 'brightness-110'
-                        } ${
-                          currentDialog.id === 7 ? 'animate-dramatic-entrance' : 'animate-scale-in'
-                        }`}
-                      />
-                    </div>
-                  )}
-                </div>
-
-            <div className="relative bg-gradient-to-b from-black/98 via-gray-900/98 to-black/98 backdrop-blur-md border-t-2 md:border-t-0 md:border-l-2 border-purple-500/50 p-4 md:p-6 flex flex-col justify-between md:w-[45%]">
-              <div className="absolute top-0 left-0 right-0 md:top-0 md:left-0 md:bottom-0 md:right-auto h-px md:h-auto md:w-px bg-gradient-to-r md:bg-gradient-to-b from-transparent via-purple-400 to-transparent" />
-              
-              <div className="mb-3">
-                <Badge className={`${characterColors[currentDialog.character]} border-2 border-current text-xs md:text-sm px-3 py-1.5 font-bold shadow-lg rounded-full`}>
+          <Card className={`flex-1 p-8 ${characterStyles[currentDialog.character]} backdrop-blur-sm border-2`}>
+            <div className="space-y-6">
+              <div className="flex items-center gap-3">
+                <Badge className="text-lg px-4 py-1">
                   {currentDialog.name}
                 </Badge>
               </div>
               
-              <div className="relative flex-1 flex items-center">
-                <p className="text-sm md:text-base leading-relaxed text-white/95 font-medium">
-                  {currentDialog.text}
-                </p>
-              </div>
+              <p className="text-2xl leading-relaxed font-medium">
+                {currentDialog.text}
+              </p>
 
-              <div className="flex justify-between items-center gap-2 mt-3">
-                {!showChoices && !scene.isEnding && isSceneVisited && !isLastDialog && (
-                  <Button
-                    onClick={handleSkipToChoice}
-                    variant="outline"
-                    className="bg-gray-800/80 hover:bg-gray-700/80 text-gray-300 border-2 border-gray-600/50 text-xs backdrop-blur-sm transition-all hover:scale-105 py-2 px-3"
-                  >
-                    <Icon name="FastForward" size={12} className="mr-1" />
-                    ПРОПУСТИТЬ
-                  </Button>
-                )}
-                <div className="flex-1" />
-                {!showChoices && !scene.isEnding && (
-                  <Button
+              <div className="flex justify-between items-center pt-4">
+                <span className="text-sm opacity-70">
+                  {currentDialogIndex + 1} / {scene.dialogs.length}
+                </span>
+                
+                {!showChoices && (
+                  <Button 
+                    size="lg"
                     onClick={handleNext}
-                    className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white border-2 border-purple-400/50 shadow-lg shadow-purple-500/50 font-bold px-4 md:px-6 py-2 text-xs md:text-sm transition-all hover:scale-105 hover:shadow-xl hover:shadow-purple-500/70"
+                    className="bg-white/20 hover:bg-white/30 text-white border-2 border-white/50"
                   >
-                    {isLastDialog && scene.choices ? '✨ ВЫБРАТЬ' : 'ДАЛЕЕ'}
-                    <Icon name="ChevronRight" size={14} className="ml-1" />
-                  </Button>
-                )}
-
-                {!showChoices && scene.isEnding && isLastDialog && (
-                  <Button
-                    onClick={handleRestart}
-                    className="bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-700 hover:to-orange-700 text-white border-2 border-red-400/50 animate-pulse shadow-lg shadow-red-500/50 font-bold px-4 md:px-6 py-2 text-xs md:text-sm transition-all hover:scale-105"
-                  >
-                    <Icon name="RotateCcw" size={14} className="mr-1" />
-                    🔄 ЗАНОВО
-                  </Button>
-                )}
-
-                {!showChoices && scene.isEnding && !isLastDialog && (
-                  <Button
-                    onClick={handleNext}
-                    className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white border-2 border-purple-400/50 shadow-lg shadow-purple-500/50 font-bold px-4 md:px-6 py-2 text-xs md:text-sm transition-all hover:scale-105"
-                  >
-                    ДАЛЕЕ
-                    <Icon name="ChevronRight" size={14} className="ml-1" />
+                    {isLastDialog && scene.choices ? 'Выбрать действие' : 'Далее'}
+                    <Icon name="ChevronRight" className="ml-2" />
                   </Button>
                 )}
               </div>
             </div>
-          </div>
-        </Card>
+          </Card>
+        </div>
 
         {showChoices && scene.choices && (
-          <div className="mt-3 space-y-2 animate-fade-in">
-            <div className="text-center mb-2">
-              <p className="text-sm md:text-lg font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 drop-shadow-lg mb-1">
-                ⚡ ЧТО ДЕЛАТЬ?! ⚡
-              </p>
-              <div className="w-24 h-0.5 bg-gradient-to-r from-transparent via-purple-500 to-transparent mx-auto" />
-            </div>
-            {scene.choices.map((choice, idx) => (
+          <div className="w-full max-w-4xl space-y-4">
+            {scene.choices.map((choice, index) => (
               <Button
-                key={idx}
+                key={index}
                 onClick={() => handleChoice(choice.nextScene)}
-                className="relative w-full text-xs md:text-sm py-3 bg-gradient-to-r from-purple-600 via-pink-600 to-purple-600 hover:from-purple-700 hover:via-pink-700 hover:to-purple-700 text-white border-2 border-purple-400/50 shadow-xl shadow-purple-500/50 font-bold transition-all hover:scale-[1.02] hover:shadow-2xl hover:shadow-purple-500/70 backdrop-blur-sm overflow-hidden group"
+                className="w-full text-xl p-8 bg-white/10 hover:bg-white/20 text-white border-2 border-white/30 backdrop-blur-sm"
+                size="lg"
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000" />
-                <span className="relative z-10">{choice.text}</span>
+                {choice.text}
               </Button>
             ))}
           </div>
         )}
 
-        <div className="mt-3 flex justify-center gap-2">
-          <Button
-            onClick={handleRestart}
-            variant="outline"
-            size="sm"
-            className="border-2 border-white text-white hover:bg-white/20 text-xs py-1 px-2"
-          >
-            <Icon name="Home" size={12} className="mr-1" />
-            Сначала
-          </Button>
-          <Button
-            variant="outline"
-            size="sm"
-            className="border-2 border-white text-white hover:bg-white/20 text-xs py-1 px-2"
-          >
-            <Icon name="Volume2" size={12} className="mr-1" />
-            Звук
-          </Button>
-        </div>
+        {scene.isEnding && (
+          <div className="w-full max-w-4xl space-y-4">
+            <Button
+              onClick={handleRestart}
+              className="w-full text-xl p-8 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white"
+              size="lg"
+            >
+              <Icon name="RotateCcw" className="mr-3" />
+              Начать заново
+            </Button>
+          </div>
+        )}
       </div>
     </div>
   );
