@@ -32,6 +32,7 @@ const SILENT_SALT_SERIOUS_IMG = 'https://cdn.poehali.dev/files/e55512d6-4a21-420
 const SILENT_SALT_SWORD_IMG = 'https://cdn.poehali.dev/files/b85e152c-da9d-4179-b4cf-fd6b9444d504.png';
 const SILENT_SALT_ANGRY_IMG = 'https://cdn.poehali.dev/files/cc7ea812-3f26-4c61-b27b-94d8043ab51d.png';
 const SILENT_SALT_TIRED_IMG = 'https://cdn.poehali.dev/files/9c588649-4545-41e2-9bc2-a6ecf6026f76.png';
+const SALT_OF_SOLIDARITY_IMG = 'https://cdn.poehali.dev/files/12d2747b-67b2-4e2d-8147-88971e1cbeaa.png';
 const SHADOW_MILK_IMG = 'https://cdn.poehali.dev/files/1d62844f-3be9-459e-ae54-73b720c5b3cc.png';
 const SHADOW_MILK_SHOCKED_IMG = 'https://cdn.poehali.dev/files/a35670fa-9fbe-421f-9707-7f07730769dc.png';
 const WHITE_LILY_IMG = 'https://cdn.poehali.dev/files/f1c38424-3b81-4dd8-a740-8e43ce5464d0.png';
@@ -195,9 +196,9 @@ const STORY_SCENES: Scene[] = [
     dialogs: [
       { id: 90, character: 'silent', name: 'Silent Salt Cookie', text: '... (мои воспоминания... они такие размытые...)', image: SILENT_SALT_SERIOUS_IMG },
       { id: 91, character: 'narrator', name: 'Narrator', text: 'Silent Salt закрывает глаза, пытаясь вспомнить...', image: SILENT_SALT_SERIOUS_IMG },
-      { id: 92, character: 'narrator', name: 'Narrator', text: '*ВОСПОМИНАНИЕ: Тысяча лет назад*', image: SILENT_SALT_SWORD_IMG },
-      { id: 93, character: 'silent', name: 'Silent Salt (прошлое)', text: '... (я был хранителем... защитником...)', image: SILENT_SALT_SWORD_IMG },
-      { id: 94, character: 'narrator', name: 'Narrator', text: 'Образы великих битв. Молчаливый воин, защищающий невинных.', image: SILENT_SALT_SWORD_IMG },
+      { id: 92, character: 'narrator', name: 'Narrator', text: '*ВОСПОМИНАНИЕ: Тысяча лет назад*', image: SALT_OF_SOLIDARITY_IMG },
+      { id: 93, character: 'silent', name: 'Salt of Solidarity', text: '... (я был хранителем... защитником...)', image: SALT_OF_SOLIDARITY_IMG },
+      { id: 94, character: 'narrator', name: 'Narrator', text: 'Образы великих битв. Молчаливый воин, защищающий невинных.', image: SALT_OF_SOLIDARITY_IMG },
       { id: 95, character: 'silent', name: 'Silent Salt (прошлое)', text: '... (но я был предан... запечатан... забыт...)', image: SILENT_SALT_ANGRY_IMG },
       { id: 96, character: 'narrator', name: 'Narrator', text: 'Боль. Предательство. Тьма, поглощающая всё...', image: SILENT_SALT_ANGRY_IMG },
       { id: 97, character: 'narrator', name: 'Narrator', text: '*ВОЗВРАЩЕНИЕ В НАСТОЯЩЕЕ*', image: SILENT_SALT_SERIOUS_IMG },
