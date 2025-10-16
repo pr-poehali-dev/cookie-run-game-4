@@ -356,10 +356,10 @@ export default function Index() {
                   <img
                     src={currentDialog.image}
                     alt="Character Sprite"
-                    className={`w-full max-w-lg h-auto object-contain drop-shadow-[0_0_80px_rgba(139,92,246,0.9)] relative z-10 filter brightness-110 transition-all duration-700 ${
-                      currentDialog.id <= 4 ? 'brightness-0' : ''
+                    className={`w-full max-w-lg h-auto object-contain drop-shadow-[0_0_80px_rgba(139,92,246,0.9)] relative z-10 filter transition-all duration-700 ${
+                      currentDialog.id <= 4 ? 'brightness-0' : 'brightness-110'
                     } ${
-                      currentDialog.character === 'shadowmilk' ? 'animate-dramatic-entrance' : 'animate-scale-in'
+                      currentDialog.id === 7 ? 'animate-dramatic-entrance' : 'animate-scale-in'
                     }`}
                   />
                 </div>
